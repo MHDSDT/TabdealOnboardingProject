@@ -1,9 +1,14 @@
 <template>
-  <Tutorial/>
+  <Banner />
 </template>
 
 <script>
+import Banner from '~/components/homepage/Banner'
+
 export default {
-  name: 'IndexPage'
+  name: 'HomePage',
+  components: {
+    Banner
+  }
 }
 </script>
