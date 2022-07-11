@@ -14,7 +14,7 @@
         با اپلیکیشن موبایل حرفه‌ای تبدیل، به سادگی و در هر شرایطی خرید و فروش امن ارز‌های دیجیتال را تجربه کنید!
       </p>
       <span
-        class="flex flex-row py-4 px-6 rounded bg-yellow-500 hover:bg-[#e0ac0c] font-medium text-center text-black w-auto">
+        class="flex flex-row py-4 px-6 rounded bg-yellow-500 hover:bg-[#e0ac0c] font-medium text-center text-black w-auto hover:cursor-pointer">
           دانلود اپلیکیشن تبدیل
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" role="img"
                      aria-hidden="true" class="mt-1 mr-2">
