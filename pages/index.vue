@@ -9,6 +9,7 @@ export default {
   name: 'HomePage',
   components: {
     Banner
-  }
+  },
+  layout: 'default'
 }
 </script>
