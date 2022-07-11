@@ -3,7 +3,6 @@
     <TheHeader />
     <Nuxt />
     <TheFooter />
-    <CopyRight />
   </div>
 </template>
 
