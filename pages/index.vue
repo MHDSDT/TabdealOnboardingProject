@@ -1,6 +1,7 @@
 <template>
   <div>
     <Banner />
+    <HomePageMarketInformation />
     <PageInfo />
     <ProsSection />
     <ApplicationPresentation />
@@ -10,6 +11,7 @@
 
 <script>
 import Banner from '~/components/homepage/Banner';
+import HomePageMarketInformation from "@/components/homepage/HomePageMarketInformation";
 import PageInfo from "@/components/homepage/PageInfo";
 import ProsSection from "@/components/homepage/ProsSection";
 import ApplicationPresentation from "@/components/homepage/ApplicationPresentation";
@@ -19,6 +21,7 @@ export default {
   name: 'HomePage',
   components: {
     Banner,
+    HomePageMarketInformation,
     PageInfo,
     ProsSection,
     ApplicationPresentation,

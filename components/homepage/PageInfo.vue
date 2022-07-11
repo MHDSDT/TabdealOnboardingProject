@@ -19,7 +19,7 @@
           <div v-for="feature in features" :key="feature.title" class="flex flex-row items-center">
             <div class="avatar ml-4 shadow-lg hover:shadow-xl rounded-full p-4 w-[85px] h-[85px]">
               <div class="w-max h-max">
-                <img class="object-scale-down" :src="feature.iconPath"
+                <img class="object-contain" :src="feature.iconPath"
                      :alt="feature.iconPath.split('/')[feature.iconPath.split('/').length - 1].split('.')[0]"/>
               </div>
             </div>
