@@ -2,7 +2,14 @@
   font-family: 'IRANSans';
   font-style: normal;
   font-weight: 400;
-  src: url('~assets/fonts/IRANSans/IRANSans.ttf') format('truetype');
+  src: url('~assets/fonts/IRANSans/ttf/IRANSansWeb.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'IRANSansMedium';
+  font-style: normal;
+  font-weight: 400;
+  src: url('~assets/fonts/IRANSans/ttf/IRANSansWeb_Medium.ttf') format('truetype');
 }
 
 @tailwind base;
@@ -11,6 +18,10 @@
 
 @layer base {
   html {
-    font-family: 'IRANSans', sans-serif;
+    font-family: 'IRANSans', serif;
+  }
+
+  h1 {
+    font-family: 'IRANSansMedium', serif;
   }
 }

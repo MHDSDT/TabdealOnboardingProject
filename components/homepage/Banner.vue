@@ -2,7 +2,7 @@
   <section class="bg-[#1a1c1f] block py-24 w-full h-[400px]">
     <div class="container mx-auto w-full sm:w-9/12 lg:w-7/12" dir="rtl">
       <div class="flex flex-col items-center justify-center space-y-6 text-white">
-        <h1 class="font-medium text-center text-4xl sm:text-5xl w-11/12 sm:w-10/12 md:w-full">
+        <h1 class="text-center text-4xl sm:text-5xl w-11/12 sm:w-10/12 md:w-full">
           صرافی ارز دیجیتال تبدیل</h1>
         <p class="text-center text-[#cacccf] text-sm md:text-lg">
           خرید و فروش امن و آسان به‌روزترین ارزهای دیجیتال جهان
