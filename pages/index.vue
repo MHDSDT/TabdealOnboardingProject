@@ -1,5 +1,8 @@
 <template>
-  <Banner />
+  <div>
+    <Banner />
+    <PageInfo />
+  </div>
 </template>
 
 <script>

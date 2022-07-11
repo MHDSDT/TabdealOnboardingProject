@@ -8,7 +8,8 @@
           خرید و فروش امن و آسان به‌روزترین ارزهای دیجیتال جهان
         </p>
         <div class="relative flex sm:flex-row flex-col items-center justify-center w-11/12 sm:w-auto">
-          <input class="p-4 rounded sm:ml-4 sm:mb-0 mb-4 w-full sm:w-auto" placeholder="شماره همراه خود را وارد کنید." required>
+          <input class="p-4 rounded sm:ml-4 sm:mb-0 mb-4 w-full sm:w-auto" placeholder="شماره همراه خود را وارد کنید."
+                 required>
           <button
             class="p-4 rounded bg-yellow-500 hover:bg-[#e0ac0c] font-medium focus:border-red-900 text-center
             text-black w-full sm:w-auto">
