@@ -10,6 +10,5 @@ export default {
   components: {
     Banner
   },
-  layout: 'default'
 }
 </script>

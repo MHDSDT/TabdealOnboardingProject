@@ -1,8 +1,9 @@
 <template>
   <div>
-    <!-- Top Bar -->
     <TheHeader />
     <Nuxt />
+    <TheFooter />
+    <CopyRight />
   </div>
 </template>
 
