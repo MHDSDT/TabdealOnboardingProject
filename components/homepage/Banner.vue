@@ -4,6 +4,7 @@
       <div class="flex flex-col items-center justify-center space-y-6 text-white">
         <h1 class="text-center text-4xl sm:text-5xl w-11/12 sm:w-10/12 md:w-full">
           صرافی ارز دیجیتال تبدیل</h1>
+<!--        <Title font-size="5xl" :is-dark=true :is-important=false text-align="center" font-weight="bold">صرافی ارز دیجیتال تبدیل</Title>-->
         <p class="text-center text-[#cacccf] text-sm md:text-lg">
           خرید و فروش امن و آسان به‌روزترین ارزهای دیجیتال جهان
         </p>
@@ -22,8 +23,13 @@
 </template>
 
 <script>
+import Title from "@/components/general/Title";
+
 export default {
-  name: "Banner"
+  name: "Banner",
+  components: {
+    Title
+  }
 }
 </script>
 
