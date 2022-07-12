@@ -1,7 +1,7 @@
 <template>
   <section class="hero py-16 lg:py-24 bg-white" dir="rtl">
     <div class="hero-content flex-col">
-      <h1 class="text-4xl text-black text-center">
+      <h1 class="text-4xl font-medium text-black text-center">
         چرا تبدیل؟
       </h1>
       <img
@@ -20,7 +20,7 @@
             <img class="object-scale-down" :src="item.iconPath"
                  :alt="item.iconPath.split('/')[item.iconPath.split('/').length - 1].split('.')[0]"/>
           </div>
-          <h1 class="text-lg">{{ item.title }}</h1>
+          <h1 class="text-lg font-medium">{{ item.title }}</h1>
           <p class="text-sm">{{ item.description }}</p>
         </div>
       </div>

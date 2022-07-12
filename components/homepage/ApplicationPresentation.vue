@@ -1,7 +1,7 @@
 <template>
   <section class="hero py-12 lg:py-16 bg-[#212224]" dir="rtl">
     <div class="hero-content flex-col">
-      <h1 class="text-4xl text-white text-center">
+      <h1 class="text-4xl font-medium text-white text-center">
         همه جا در دسترس شما
       </h1>
       <img

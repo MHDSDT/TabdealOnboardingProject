@@ -1,7 +1,7 @@
 <template>
   <section class="hero py-16 lg:py-24 bg-[#f6f7fa]" dir="rtl">
     <div class="hero-content flex-col">
-      <h1 class="text-4xl text-black text-center">
+      <h1 class="text-4xl font-medium text-black text-center">
         همین امروز به خانواده بزرگ تبدیل بپیوندید
       </h1>
       <img
@@ -17,16 +17,14 @@
         <img src="https://tabdeal.org/images/homepage/new-content/panel-mockup-mobile.png" class="max-w-s lg:w-[500px] xl:max-w-s" alt="panel-mockup-mobile"/>
         <div class="hero-content flex flex-col items-start">
           <div v-for="feature in features" :key="feature.title" class="flex flex-row items-center">
-            <div class="avatar ml-4 shadow-lg hover:shadow-xl rounded-full p-4 w-[85px] h-[85px]">
-              <div class="w-max h-max">
-                <img class="object-contain" :src="feature.iconPath"
+            <div class="ml-4 shadow-lg hover:shadow-xl rounded-full p-4 w-[100px] h-[85px] flex align-center justify-center">
+                <img class="" :src="feature.iconPath"
                      :alt="feature.iconPath.split('/')[feature.iconPath.split('/').length - 1].split('.')[0]"/>
-              </div>
             </div>
 
             <div class="flex flex-col text-black">
-              <h1 class="text-lg">{{ feature.title }}</h1>
-              <p class="text-sm">{{ feature.description }}</p>
+              <h1 class="text-lg font-medium">{{ feature.title }}</h1>
+              <p class="text-sm text-justify">{{ feature.description }}</p>
             </div>
           </div>
         </div>

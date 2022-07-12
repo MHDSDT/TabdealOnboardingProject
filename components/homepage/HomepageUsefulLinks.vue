@@ -8,7 +8,7 @@
           <img class="object-scale-down" :src="item.iconPath"
                :alt="item.iconPath.split('/')[item.iconPath.split('/').length - 1].split('.')[0]"/>
         </div>
-        <h1 class="text-lg hover:text-[#e0ac0c]">{{ item.title }}</h1>
+        <h1 class="text-lg font-medium hover:text-[#e0ac0c]">{{ item.title }}</h1>
         <p class="text-sm">{{ item.description }}</p>
       </a>
     </div>
