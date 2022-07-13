@@ -13,8 +13,9 @@
         <MarketInformation :number-of-rows="7" />
 
         <div class="card-actions justify-center">
-          <span
+          <NuxtLink
             class="flex flex-row p-2 hover:rounded hover:bg-[#f7f7f7] text-center text-sm text-[#999a9d] w-auto hover:cursor-pointer"
+            to="/markets-overview"
           >
             مشاهده تمام بازارها
             <svg
@@ -30,7 +31,7 @@
                 d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"
               ></path>
             </svg>
-          </span>
+          </NuxtLink>
         </div>
       </div>
     </div>

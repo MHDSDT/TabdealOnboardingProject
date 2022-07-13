@@ -1,17 +1,17 @@
 <template>
   <div class="navbar bg-black px-5" dir="rtl">
     <div class="navbar-start w-full">
-      <a href="#" class="flex items-center ml-4">
+      <NuxtLink to="/" class="flex items-center ml-4">
         <img
           src="https://tabdeal.org/tabdeal-logo-dark.svg"
           class="mr-3 h-6 sm:h-9"
           alt="Tabeal Logo"
         />
-      </a>
+      </NuxtLink>
       <div class="hidden lg:flex text-xs">
         <ul class="flex flex-row gap-4 justify-items-center items-center">
           <li tabindex="0">
-            <button class="btn btn-outline btn-sm font-normal">
+            <button class="btn btn-outline btn-sm text-xs">
               خرید و فروش
               <svg
                 class="fill-current"
@@ -23,14 +23,9 @@
                 <path :d="mdiMenuDown" />
               </svg>
             </button>
-            <!--            <ul class="p-2">-->
-            <!--               TODO Market Information -->
-            <!--            </ul>-->
           </li>
           <li>
-            <a class="btn btn-outline btn-primary btn-sm font-normal"
-              >خرید آسان</a
-            >
+            <a class="btn btn-outline btn-primary btn-sm text-xs">خرید آسان</a>
           </li>
           <li><a class="ml-2">راهنمای گام به گام</a></li>
           <li><a>درآمد رایگان</a></li>
