@@ -1,5 +1,5 @@
 <template>
-  <section class="hero py-16 lg:py-24 bg-white" dir="rtl">
+  <section class="hero py-16 lg:py-24 bg-white">
     <div class="hero-content flex flex-col lg:flex-row">
       <a
         v-for="item in pros"

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Banner from '~/components/homepage/Banner';
+import Banner from "~/components/homepage/Banner";
 import HomePageMarketInformation from "@/components/homepage/HomePageMarketInformation";
 import PageInfo from "@/components/homepage/PageInfo";
 import ProsSection from "@/components/homepage/ProsSection";
@@ -18,14 +18,14 @@ import ApplicationPresentation from "@/components/homepage/ApplicationPresentati
 import HomepageUsefulLinks from "@/components/homepage/HomepageUsefulLinks";
 
 export default {
-  name: 'HomePage',
+  name: "HomePage",
   components: {
     Banner,
     HomePageMarketInformation,
     PageInfo,
     ProsSection,
     ApplicationPresentation,
-    HomepageUsefulLinks
+    HomepageUsefulLinks,
   },
-}
+};
 </script>

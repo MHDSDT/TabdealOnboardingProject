@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer class="footer p-10 bg-[#212224] text-base-content" dir="rtl">
+    <footer class="footer p-10 bg-[#212224] text-base-content">
       <div>
         <span class="footer-title">درباره ما</span>
         <a v-for="item in about" class="link link-hover">{{ item }}</a>
@@ -13,9 +13,9 @@
         <span class="footer-title">بیشتر بدانید</span>
         <a v-for="item in learnMore" class="link link-hover">{{ item }}</a>
       </div>
-      <FooterSocialMedia/>
+      <FooterSocialMedia />
     </footer>
-    <CopyRight/>
+    <CopyRight />
   </div>
 </template>
 
@@ -25,35 +25,31 @@ export default {
   data() {
     return {
       about: [
-        'داستان ما',
-        'تماس با ما',
-        'سوالات متفاوت',
-        'قوانین و مقررات',
-        'کارمزد تبدیل'
+        "داستان ما",
+        "تماس با ما",
+        "سوالات متفاوت",
+        "قوانین و مقررات",
+        "کارمزد تبدیل",
       ],
       services: [
-        'آکادمی تبدیل',
-        'راهنمای گام به گام',
-        'مشاوره رایگان',
-        'صرافی ارز دیجیتال',
-        'پشتیبانی تبدیل',
-        'مستندات'
+        "آکادمی تبدیل",
+        "راهنمای گام به گام",
+        "مشاوره رایگان",
+        "صرافی ارز دیجیتال",
+        "پشتیبانی تبدیل",
+        "مستندات",
       ],
       learnMore: [
-        'خرید بیت کوین',
-        'خرید تتر',
-        'خرید اتریوم',
-        'خرید شیبا',
-        'خرید ترون',
-        'خرید دوج کوین'
-      ]
-
-    }
-  }
-
-}
+        "خرید بیت کوین",
+        "خرید تتر",
+        "خرید اتریوم",
+        "خرید شیبا",
+        "خرید ترون",
+        "خرید دوج کوین",
+      ],
+    };
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

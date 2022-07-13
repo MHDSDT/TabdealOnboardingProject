@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white flex justify-center pb-20 px-5 pt-0" dir="rtl">
+  <div class="bg-white flex justify-center pb-20 px-5 pt-0">
     <div class="card w-96 bg-white shadow-xl w-[900px] md:-mt-16 -mt-8">
       <div class="card-body text-black">
         <h1 class="text-4xl font-medium mb-2">

@@ -1,5 +1,5 @@
 <template>
-  <div dir="rtl">
+  <div>
     <section class="bg-gray-200 p-10 flex flex-col gap-4 items-start">
       <h1 class="text-4xl font-medium text-black text-center">نمای بازارها</h1>
       <button class="btn btn-primary btn-outline gap-2 flex flex-nowrap">

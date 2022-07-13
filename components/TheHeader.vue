@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-black px-5" dir="rtl">
+  <div class="navbar bg-black px-5">
     <div class="navbar-start w-full">
       <NuxtLink to="/" class="flex items-center ml-4">
         <img
