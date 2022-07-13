@@ -72,19 +72,31 @@ export default {
   data() {
     return {
       cryptos: {},
-      mdiMagnify,
       headers: ["نام", "آخرین قیمت", "تغییرات قیمت", ""],
+      mdiMagnify,
     };
   },
   async fetch() {
-    const url = "https://api.tabdeal.org:8443/r/plots/price_info/";
-    let res = await this.$axios.get(url);
-    this.cryptos = res.data;
+    const config = {
+      method: "get",
+      url: "https://api.tabdeal.org:8443/r/plots/price_info/",
+    };
+    await this.$axios(config)
+      .then((response) => {
+        this.cryptos = response.data;
+      })
+      .catch((error) => {
+        console.error(error.data);
+      });
   },
   props: {
+    isLimited: {
+      type: Boolean,
+      required: true,
+    },
     numberOfRows: {
       type: Number,
-      required: true,
+      default: Number.MAX_VALUE,
     },
   },
   methods: {
@@ -96,6 +108,7 @@ export default {
   },
   computed: {
     calculatedCryptos: function () {
+      if (!this.isLimited) return this.cryptos;
       let numberOfCryptosToBeShown = Math.max(this.numberOfRows, 0);
       return Object.keys(this.cryptos)
         .slice(0, numberOfCryptosToBeShown)

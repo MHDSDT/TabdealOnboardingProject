@@ -10,7 +10,7 @@
           فاصله دارید
         </p>
 
-        <MarketInformation :number-of-rows="7" />
+        <MarketInformation :number-of-rows="7" :is-limited="true" />
 
         <div class="card-actions justify-center">
           <NuxtLink
