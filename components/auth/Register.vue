@@ -6,35 +6,89 @@
       <div>
         <h2 class="mt-6 text-2xl">ثبت نام</h2>
       </div>
-      <form class="space-y-6" action="#" method="POST">
-        <div class="flex flex-col gap-4">
-          <label for="password" class="sr-only">رمز عبور</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            class="input input-bordered focus:input-primary w-full bg-gray-100 text-base text-gray-900"
-            placeholder="رمز عبور خود را تعیین نمایید"
-          />
+      <form class="space-y-6" action="#" method="POST" @submit="">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center">
+            <label for="password" class="sr-only">رمز عبور</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              v-model="inputPassword"
+              ref="password"
+              required
+              class="input input-bordered focus:input-primary w-full bg-gray-100 text-base text-gray-900"
+              placeholder="رمز عبور خود را تعیین نمایید"
+            />
+            <svg
+              class="h-8 w-8 fill-current -mr-11 hover:cursor-pointer"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              @click="togglePasswordVisibility('password')"
+            >
+              <path :d="isPasswordHidden ? mdiEyeOff : mdiEye" />
+            </svg>
+          </div>
 
-          <div></div>
-
-          <label for="password-confirmation" class="sr-only"
-            >تایید رمز عبور</label
+          <div
+            class="flex flex-col text-sm text-gray-500 gap-2 pr-4 my-4 font-light"
           >
-          <input
-            id="password-confirmation"
-            name="-confirmation"
-            type="password"
-            required
-            class="input input-bordered focus:input-primary w-full bg-gray-100 text-base text-gray-900"
-            placeholder="رمز عبور خود را دوباره وارد کنید"
-          />
+            <p
+              v-for="prop in passwordProperties"
+              :key="prop.title"
+              class="flex gap-2"
+            >
+              <svg
+                class="h-5 w-5 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  :d="
+                    prop.booleanProperty
+                      ? mdiCheckboxMarkedOutline
+                      : mdiCropSquare
+                  "
+                />
+              </svg>
+              {{ prop.title }}
+            </p>
+          </div>
+
+          <div class="flex items-center">
+            <label for="password-confirmation" class="sr-only"
+              >تایید رمز عبور</label
+            >
+            <input
+              id="password-confirmation"
+              name="password-confirmation"
+              type="password"
+              v-model="inputPasswordConfirmation"
+              ref="password-confirmation"
+              required
+              class="input input-bordered focus:input-primary w-full bg-gray-100 text-base text-gray-900"
+              placeholder="رمز عبور خود را دوباره وارد کنید"
+            />
+            <svg
+              class="h-8 w-8 fill-current -mr-11 hover:cursor-pointer"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              @click="togglePasswordVisibility('password-confirmation')"
+            >
+              <path :d="isPasswordConfirmationHidden ? mdiEyeOff : mdiEye" />
+            </svg>
+          </div>
         </div>
 
         <div>
-          <button type="submit" class="btn btn-primary w-full">
+          <button
+            type="submit"
+            :class="disabledButtonClasses"
+            ref="createUserButton"
+          >
             ساخت حساب کاربری
           </button>
         </div>
@@ -44,8 +98,110 @@
 </template>
 
 <script>
+import {
+  mdiCropSquare,
+  mdiCheckboxMarkedOutline,
+  mdiEye,
+  mdiEyeOff,
+} from "@mdi/js";
+
 export default {
   name: "Register",
+  data() {
+    return {
+      mdiCheckboxMarkedOutline,
+      mdiCropSquare,
+      mdiEye,
+      mdiEyeOff,
+      isAtLeastEightChars: false,
+      doesHaveUpperCase: false,
+      doesHaveNumber: false,
+      doesHaveLowerCase: false,
+      doesPasswordsMatch: false,
+      inputPassword: "",
+      inputPasswordConfirmation: "",
+      isPasswordHidden: true,
+      isPasswordConfirmationHidden: true,
+      passwordProperties: [
+        {
+          title: "حداقل ۸ کاراکتر",
+          booleanProperty: this.isAtLeastEightChars,
+        },
+        {
+          title: "دارای حداقل یک حرف بزرگ",
+          booleanProperty: this.doesHaveUpperCase,
+        },
+        {
+          title: "دارای حداقل یک عدد",
+          booleanProperty: this.doesHaveNumber,
+        },
+        {
+          title: "دارای حداقل یک حرف کوچک",
+          booleanProperty: this.doesHaveLowerCase,
+        },
+      ],
+      disabledButtonClasses:
+        "btn btn-disabled bg-gray-200 text-gray-400 border-none w-full",
+      primaryButtonClasses: "btn btn-primary w-full",
+    };
+  },
+  watch: {
+    inputPassword: function () {
+      const hasUpperCase = /[A-Z]/;
+      const hasNumber = /\d/;
+      const hasLowerCase = /[a-z]/;
+
+      this.isAtLeastEightChars = this.inputPassword.length >= 8;
+      this.doesHaveUpperCase = hasUpperCase.test(this.inputPassword);
+      this.doesHaveNumber = hasNumber.test(this.inputPassword);
+      this.doesHaveLowerCase = hasLowerCase.test(this.inputPassword);
+
+      this.setCreateUserButtonClasses();
+    },
+    inputPasswordConfirmation: function () {
+      this.doesPasswordsMatch =
+        this.inputPassword === this.inputPasswordConfirmation;
+
+      this.setCreateUserButtonClasses();
+    },
+    isAtLeastEightChars: function () {
+      this.passwordProperties[0].booleanProperty = this.isAtLeastEightChars;
+    },
+    doesHaveUpperCase: function () {
+      this.passwordProperties[1].booleanProperty = this.doesHaveUpperCase;
+    },
+    doesHaveNumber: function () {
+      this.passwordProperties[2].booleanProperty = this.doesHaveNumber;
+    },
+    doesHaveLowerCase: function () {
+      this.passwordProperties[3].booleanProperty = this.doesHaveLowerCase;
+    },
+  },
+  methods: {
+    togglePasswordVisibility: function (ref) {
+      const el = this.$refs[ref];
+
+      el.type = el.type === "password" ? "text" : "password";
+
+      if (ref === "password") {
+        this.isPasswordHidden = !this.isPasswordHidden;
+      } else {
+        this.isPasswordConfirmationHidden = !this.isPasswordConfirmationHidden;
+      }
+    },
+    setCreateUserButtonClasses: function () {
+      const button = this.$refs.createUserButton;
+      if (
+        this.isAtLeastEightChars &&
+        this.doesHaveUpperCase &&
+        this.doesHaveNumber &&
+        this.doesHaveLowerCase &&
+        this.doesPasswordsMatch
+      ) {
+        button.classList.value = this.primaryButtonClasses;
+      } else button.classList.value = this.disabledButtonClasses;
+    },
+  },
 };
 </script>
 
