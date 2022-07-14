@@ -33,8 +33,14 @@
       </div>
     </div>
     <div class="navbar-end">
-      <a href="#" class="btn btn-primary btn-sm btn-ghost ml-2">ورود</a>
-      <a href="#" class="btn btn-primary btn-sm ml-2">ثبت‌نام</a>
+      <NuxtLink
+        to="/auth/login-req"
+        class="btn btn-primary btn-sm btn-ghost ml-2"
+        >ورود</NuxtLink
+      >
+      <NuxtLink to="/auth/register-req" class="btn btn-primary btn-sm ml-2"
+        >ثبت‌نام</NuxtLink
+      >
 
       <div class="dropdown">
         <label tabindex="0" class="btn btn-ghost lg:hidden">

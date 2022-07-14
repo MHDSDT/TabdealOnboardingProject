@@ -1,6 +1,7 @@
 <template>
   <footer
-    class="footer footer-center p-4 bg-[#1a1c1f] text-base-content text-[#cacccf]"
+    class="footer footer-center p-4 text-base-content"
+    :class="calculatedClass"
   >
     <div class="flex flex-row">
       <p>© تمام حقوق مادی و معنوی این سایت متعلق به تبدیل است.</p>
@@ -13,6 +14,19 @@
 <script>
 export default {
   name: "CopyRight",
+  props: {
+    isDark: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  computed: {
+    calculatedClass: function () {
+      const lightClass = "text-gray-400 bg-white";
+      const darkClass = "text-gray-400 bg-black";
+      return this.isDark ? darkClass : lightClass;
+    },
+  },
 };
 </script>
 

@@ -15,6 +15,7 @@
         امن ارز‌های دیجیتال را تجربه کنید!
       </p>
       <button class="btn btn-primary btn-lg gap-2">
+        دانلود اپلیکیشن تبدیل
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="18"
@@ -26,7 +27,6 @@
         >
           <path :d="mdiArrowDown"></path>
         </svg>
-        دانلود اپلیکیشن تبدیل
       </button>
     </div>
   </section>
