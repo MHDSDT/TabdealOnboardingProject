@@ -51,8 +51,8 @@
               }}
             </h1>
             <p
-              :class="calculateColorOfChanges(this.obj.changes, 'bg')"
               class="text-white rounded-md text-xl p-2"
+              :class="calculateColorOfChangesBg(this.obj.changes)"
             >
               {{ this.obj.changes | percent }}
             </p>
@@ -114,7 +114,7 @@
                   <td>تغییرات ۲۴ ساعت گذشته</td>
                   <td
                     class="text-start"
-                    :class="calculateColorOfChanges(this.obj.changes, 'text')"
+                    :class="calculateColorOfChangesText(this.obj.changes)"
                     dir="ltr"
                   >
                     {{ this.obj.changes | percent }}
@@ -159,10 +159,15 @@ export default {
     };
   },
   methods: {
-    calculateColorOfChanges(value, el) {
-      if (value > 0) return `${el}-green-500`;
-      if (value === 0) return `${el}-gray-700`;
-      return `${el}-red-600`;
+    calculateColorOfChangesText(value) {
+      if (value > 0) return "text-green-500";
+      if (value === 0) return "text-gray-700";
+      return "text-red-600";
+    },
+    calculateColorOfChangesBg(value) {
+      if (value > 0) return "bg-green-500";
+      if (value === 0) return "bg-gray-700";
+      return "bg-red-600";
     },
     currency(value, curr, showCurr) {
       const usdFormatter = new Intl.NumberFormat("en-US", {
