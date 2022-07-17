@@ -27,7 +27,7 @@
             <th
               v-for="header in headers"
               scope="col"
-              class="text-start py-3 px-6"
+              class="text-start py-3 px-4 text-gray-400"
             >
               {{ header }}
             </th>
