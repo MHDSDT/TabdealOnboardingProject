@@ -219,10 +219,6 @@ export default {
       this.$router.push("/");
     },
   },
-  created() {
-    console.log(User.tmpPhoneNumber);
-    console.log(User.allUsers);
-  },
 };
 </script>
 
