@@ -2,6 +2,7 @@
   font-family: 'IRANSans';
   font-style: normal;
   font-weight: 200;
+  font-display: swap;
   src: url('~assets/fonts/IRANSans/ttf/IRANSansWeb_UltraLight.ttf') format('truetype');
 }
 
@@ -16,6 +17,7 @@
   font-family: 'IRANSans';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('~assets/fonts/IRANSans/ttf/IRANSansWeb.ttf') format('truetype');
 }
 
@@ -23,6 +25,7 @@
   font-family: 'IRANSans';
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('~assets/fonts/IRANSans/ttf/IRANSansWeb_Medium.ttf') format('truetype');
 }
 
@@ -30,6 +33,7 @@
   font-family: 'IRANSans';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('~assets/fonts/IRANSans/ttf/IRANSansWeb_Bold.ttf') format('truetype');
 }
 
@@ -37,6 +41,7 @@
   font-family: 'IRANSans';
   font-style: normal;
   font-weight: 900;
+  font-display: swap;
   src: url('~assets/fonts/IRANSans/ttf/IRANSansWeb_Black.ttf') format('truetype');
 }
 
