@@ -23,7 +23,7 @@
     <div class="overflow-x-auto relative">
       <table class="w-full text-sm text-start">
         <thead class="text-xs text-gray-700">
-          <tr>
+          <tr class="border-b">
             <th
               v-for="header in headers"
               scope="col"
@@ -35,17 +35,22 @@
         </thead>
         <tbody>
           <tr
-            class="bg-white border-b"
-            v-for="crypto in calculatedCryptos"
+            :class="index === calculatedCryptos.length - 1 ? '' : 'border-b'"
+            v-for="(crypto, index) in calculatedCryptos"
             :key="crypto.symbol_name"
           >
-            <td class="py-2 px-4 font-medium text-gray-900 whitespace-nowrap">
-              <p>{{ `${crypto.symbol} / ${crypto.second_currency_symbol}` }}</p>
+            <td class="py-2 px-4 text-gray-400">
+              <div class="font-medium text-base flex justify-end" dir="ltr">
+                <span class="text-black"> {{ `${crypto.symbol}` }}&nbsp; </span>
+                <span class="text-base">
+                  {{ ` / ${crypto.second_currency_symbol}` }}
+                </span>
+              </div>
               {{ crypto.farsi_symbol }}
             </td>
             <td class="py-2 px-4">
-              <div class="flex flex-col gap-1 items-start">
-                <h1 class="font-medium">
+              <div class="flex flex-col items-start">
+                <h1 class="font-medium text-base">
                   {{
                     currency(
                       crypto.current_price,
@@ -54,7 +59,7 @@
                     )
                   }}
                 </h1>
-                <p class="text-gray-600 flex justify-end" dir="rtl">
+                <p class="text-gray-400 flex justify-end" dir="rtl">
                   {{
                     currency(
                       crypto.current_price,
@@ -76,8 +81,8 @@
               <NuxtLink
                 :to="`buy-${crypto.symbol.toLowerCase()}`"
                 class="btn btn-primary btn-sm"
-                >صفحه ارز</NuxtLink
-              >
+                >صفحه ارز
+              </NuxtLink>
             </td>
           </tr>
         </tbody>
