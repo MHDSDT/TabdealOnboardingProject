@@ -9,12 +9,10 @@
         >
           صرافی ارز دیجیتال تبدیل
         </h1>
-        <!--        <Title font-size="5xl" :is-dark=true :is-important=false text-align="center" font-weight="bold">صرافی ارز دیجیتال تبدیل</Title>-->
         <p class="text-center text-[#cacccf] text-sm md:text-lg">
           خرید و فروش امن و آسان به‌روزترین ارزهای دیجیتال جهان
         </p>
-
-        <div v-if="userClass.isLoggedIn">
+        <div v-if="isLoggedIn">
           <button class="btn btn-primary btn-lg flex gap-2">
             پنل کاربری
             <svg
@@ -52,8 +50,7 @@
 
 <script>
 import { mdiArrowLeft } from "@mdi/js";
-import Title from "@/components/general/Title";
-import User from "@/assets/js/User.js";
+import User from "~/assets/js/User.js";
 
 export default {
   name: "Banner",
@@ -64,19 +61,27 @@ export default {
       userClass: User,
     };
   },
-  methods: {
-    checkExistenceOfUser() {
-      if (User.allUsers[this.enteredPhoneNumber] !== undefined) {
-        this.$router.push("/auth/login-req");
+  computed: {
+    isLoggedIn() {
+      if (process.client) {
+        return localStorage.isLoggedIn;
       } else {
-        User.tmpPhoneNumber = this.enteredPhoneNumber;
-        console.log(`User.tmpPhoneNumber is ${User.tmpPhoneNumber}`);
-        this.$router.push("/auth/register");
+        return false;
       }
     },
   },
-  components: {
-    Title,
+  methods: {
+    checkExistenceOfUser() {
+      const phoneNumberFormat = /^([0-9]{10})$|^([0-9]{11})$/;
+      if (!this.enteredPhoneNumber.match(phoneNumberFormat)) return;
+      if (User.allUsers[this.enteredPhoneNumber] !== undefined) {
+        this.$router.push("/auth/login-req");
+      } else {
+        localStorage.tmpPhoneNumber = this.enteredPhoneNumber;
+        console.log(`tmpPhoneNumber is ${localStorage.tmpPhoneNumber}`);
+        localStorage.push("/auth/register");
+      }
+    },
   },
 };
 </script>

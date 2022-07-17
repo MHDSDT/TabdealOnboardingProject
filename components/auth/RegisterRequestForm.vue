@@ -76,11 +76,13 @@ export default {
   },
   methods: {
     checkExistenceOfUser() {
+      const phoneNumberFormat = /^([0-9]{10})$|^([0-9]{11})$/;
+      if (!this.enteredPhoneNumber.match(phoneNumberFormat)) return;
       if (User.allUsers[this.enteredPhoneNumber] !== undefined) {
         this.$router.push("/auth/login-req");
       } else {
-        User.tmpPhoneNumber = this.enteredPhoneNumber;
-        console.log(`User.tmpPhoneNumber is ${User.tmpPhoneNumber}`);
+        localStorage.tmpPhoneNumber = this.enteredPhoneNumber;
+        console.log(`tmpPhoneNumber is ${localStorage.tmpPhoneNumber}`);
         this.$router.push("/auth/register");
       }
     },

@@ -51,7 +51,10 @@
                   "
                 />
                 <div class="flex flex-col">
-                  <div class="font-medium text-base flex justify-end" dir="ltr">
+                  <div
+                    class="font-medium text-base flex flex-col sm:flex-row justify-end"
+                    dir="ltr"
+                  >
                     <span class="text-black">
                       {{ `${crypto.symbol}` }}&nbsp;
                     </span>

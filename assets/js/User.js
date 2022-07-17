@@ -1,16 +1,11 @@
 export default class User {
   static allUsers = {};
-  static isLoggedIn = false;
-  static loggedInUser = null;
-  static tmpPhoneNumber = null;
 
   constructor(phoneNumber, password) {
     this._phoneNumber = phoneNumber;
     this._password = password;
     User.allUsers[phoneNumber] = this;
-    // console.log(this);
-    // console.log(User);
-    // console.log(`User ${phoneNumber} with password ${password} created!`);
+    console.log(`User ${phoneNumber} with password ${password} created!`);
   }
 
   get phoneNumber() {

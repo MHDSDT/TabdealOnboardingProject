@@ -71,8 +71,7 @@ export default {
       const user = User.allUsers[this.inputPhoneNumber];
       if (User.allUsers[this.inputPhoneNumber] === undefined) return; // TODO show error message
       if (user.password === this.inputPassword) return; // TODO show error message
-      User.isLoggedIn = true;
-      User.loggedInUser = user;
+      localStorage.isLoggedIn = true;
       this.$router.push("/");
     },
   },

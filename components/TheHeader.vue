@@ -1,11 +1,11 @@
 <template>
   <div class="navbar bg-black px-5">
-    <div class="navbar-start w-full">
+    <div class="navbar-start">
       <NuxtLink to="/" class="flex items-center ml-4">
         <img
           src="https://tabdeal.org/tabdeal-logo-dark.svg"
           class="mr-3 h-6 sm:h-9"
-          alt="Tabeal Logo"
+          alt="Tabdeal Logo"
         />
       </NuxtLink>
       <div class="hidden lg:flex text-xs">
@@ -27,13 +27,44 @@
           <li>
             <a class="btn btn-outline btn-primary btn-sm text-xs">خرید آسان</a>
           </li>
-          <li><a class="ml-2">راهنمای گام به گام</a></li>
-          <li><a>درآمد رایگان</a></li>
+          <li>
+            <a class="btn btn-sm font-normal text-xs btn-ghost l-2"
+              >راهنمای گام به گام</a
+            >
+          </li>
+          <li>
+            <a class="btn btn-sm font-normal text-xs btn-ghost">درآمد رایگان</a>
+          </li>
         </ul>
       </div>
     </div>
+
     <div class="navbar-end">
-      <div v-if="!userClass.isLoggedIn" class="flex">
+      <div v-if="isLoggedIn" class="flex items-center justify-center">
+        <button class="btn btn-primary btn-sm btn-ghost ml-2" dir="ltr">
+          <svg
+            class="w-5 w-5 mr-2 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path :d="mdiMenuDown" />
+          </svg>
+          <!--          <svg-->
+          <!--            class="w-8 w-8 mr-2 fill-current"-->
+          <!--            xmlns="http://www.w3.org/2000/svg"-->
+          <!--            viewBox="0 0 24 24"-->
+          <!--          >-->
+          <!--            <path :d="mdiAccountCircleOutline" />-->
+          <!--          </svg>-->
+          {{ phoneNumber | hidePhoneNumber }}
+        </button>
+
+        <button @click="logOut()" class="btn btn-error btn-sm ml-2 text-white">
+          خروج
+        </button>
+      </div>
+
+      <div v-else class="flex">
         <NuxtLink
           to="/auth/login-req"
           class="btn btn-primary btn-sm btn-ghost ml-2"
@@ -42,23 +73,6 @@
         <NuxtLink to="/auth/register-req" class="btn btn-primary btn-sm ml-2"
           >ثبت‌نام
         </NuxtLink>
-      </div>
-
-      <div v-else class="navbar-end flex items-center justify-center">
-        <button class="btn btn-primary btn-sm btn-ghost ml-2" dir="ltr">
-          <svg
-            class="w-5 w-5 fill-current"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <path :d="mdiMenuDown" />
-          </svg>
-          {{ userClass.loggedInUser.phoneNumber | hidePhoneNumber }}
-        </button>
-
-        <button @click="logOut" class="btn btn-error btn-sm ml-2 text-white">
-          خروج
-        </button>
       </div>
 
       <div class="dropdown">
@@ -77,7 +91,7 @@
 </template>
 
 <script>
-import { mdiMenuDown, mdiMenu } from "@mdi/js";
+import { mdiMenuDown, mdiMenu, mdiAccountCircleOutline } from "@mdi/js";
 import User from "@/assets/js/User.js";
 
 export default {
@@ -86,13 +100,36 @@ export default {
     return {
       mdiMenuDown,
       mdiMenu,
+      mdiAccountCircleOutline,
       userClass: User,
     };
   },
+  computed: {
+    isLoggedIn() {
+      if (process.client) {
+        console.log("isLoggedIn is invoked");
+        return localStorage.isLoggedIn;
+      } else {
+        return false;
+      }
+    },
+    phoneNumber() {
+      if (process.client) {
+        console.log("phoneNumber is invoked");
+        return localStorage.tmpPhoneNumber;
+      } else {
+        return "";
+      }
+    },
+  },
   methods: {
     logOut() {
-      this.userClass.isLoggedIn = false;
-      this.userClass.loggedInUser = null;
+      localStorage.isLoggedIn = false;
+      localStorage.tmpPhoneNumber = null;
+      console.log(`localStorage.isLoggedIn: ${localStorage.isLoggedIn}`);
+      console.log(
+        `localStorage.tmpPhoneNumber: ${localStorage.tmpPhoneNumber}`
+      );
     },
   },
   filters: {

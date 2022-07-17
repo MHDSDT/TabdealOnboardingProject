@@ -154,7 +154,10 @@ export default {
     };
   },
   middleware({ redirect }) {
-    if (User.tmpPhoneNumber === null) redirect({ path: "/auth/login-req" });
+    if (process.client) {
+      if (localStorage.tmpPhoneNumber.length <= 0)
+        redirect({ path: "/auth/register-req" });
+    }
   },
   watch: {
     inputPassword() {
@@ -213,9 +216,8 @@ export default {
       } else button.classList.value = this.disabledButtonClasses;
     },
     createUser() {
-      let newUser = new User(User.tmpPhoneNumber, this.inputPassword);
-      User.isLoggedIn = true;
-      User.loggedInUser = newUser;
+      new User(localStorage.tmpPhoneNumber, this.inputPassword);
+      localStorage.isLoggedIn = true;
       this.$router.push("/");
     },
   },

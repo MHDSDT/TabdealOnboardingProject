@@ -27,8 +27,8 @@
       </button>
     </section>
 
-    <section class="bg-white px-4 pt-4 pb-16 flex justify-center">
-      <div class="card bg-white shadow-xl w-[900px]">
+    <section class="bg-white px-16 pt-4 pb-16 flex justify-center">
+      <div class="card bg-white shadow-xl w-full">
         <div class="card-body text-black">
           <MarketInformation :number-of-rows="100" :is-limited="false" />
         </div>
