@@ -5,7 +5,7 @@
   >
     <div class="flex flex-row">
       <p>© تمام حقوق مادی و معنوی این سایت متعلق به تبدیل است.</p>
-      <div class="divider divider-horizontal -mx-1"></div>
+      <div class="divider divider-horizontal -mx-1 bg-opacity-100"></div>
       <a href="https://tabdeal.org/termsconditions/"> قوانین و مقررات </a>
     </div>
   </footer>

@@ -11,7 +11,12 @@
         </h1>
         <h2 class="mt-6 text-2xl">ورود</h2>
       </div>
-      <form class="space-y-6" action="#" method="POST">
+      <form
+        class="space-y-6"
+        action="#"
+        method="POST"
+        @submit.prevent="checkPhoneNumberAndPassword()"
+      >
         <div class="flex flex-col gap-4">
           <label for="phone" class="sr-only">شماره همراه</label>
           <input
@@ -51,8 +56,26 @@
 </template>
 
 <script>
+import User from "@/assets/js/User";
+
 export default {
   name: "Login",
+  data() {
+    return {
+      inputPhoneNumber: "",
+      inputPassword: "",
+    };
+  },
+  methods: {
+    checkPhoneNumberAndPassword() {
+      const user = User.allUsers[this.inputPhoneNumber];
+      if (User.allUsers[this.inputPhoneNumber] === undefined) return; // TODO show error message
+      if (user.password === this.inputPassword) return; // TODO show error message
+      User.isLoggedIn = true;
+      User.loggedInUser = user;
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 

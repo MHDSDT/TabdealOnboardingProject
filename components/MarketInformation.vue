@@ -44,18 +44,40 @@
               {{ crypto.farsi_symbol }}
             </td>
             <td class="py-2 px-4">
-              {{
-                crypto.current_price | currency(crypto.second_currency_symbol)
-              }}
+              <div class="flex flex-col gap-1 items-start">
+                <h1 class="font-medium">
+                  {{
+                    currency(
+                      crypto.current_price,
+                      crypto.second_currency_symbol,
+                      "USD"
+                    )
+                  }}
+                </h1>
+                <p class="text-gray-600 flex justify-end" dir="rtl">
+                  {{
+                    currency(
+                      crypto.current_price,
+                      crypto.second_currency_symbol,
+                      "Toman"
+                    )
+                  }}
+                </p>
+              </div>
             </td>
             <td
-              class="py-2 px-4"
+              dir="ltr"
+              class="py-2 px-4 text-end"
               :class="calculateColorOfChanges(crypto.changes)"
             >
               {{ crypto.changes | percent }}
             </td>
             <td class="py-2 px-4 w-[110px]">
-              <button class="btn btn-primary btn-sm">صفحه ارز</button>
+              <NuxtLink
+                :to="`buy-${crypto.symbol.toLowerCase()}`"
+                class="btn btn-primary btn-sm"
+                >صفحه ارز</NuxtLink
+              >
             </td>
           </tr>
         </tbody>
@@ -105,6 +127,31 @@ export default {
       if (value === 0) return "text-gray-700";
       return "text-red-600";
     },
+    currency(value, curr, showCurr) {
+      const usdFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 0,
+      });
+
+      const tomanFormatter = new Intl.NumberFormat("fa-IR", {
+        style: "currency",
+        currency: "IRR",
+        minimumFractionDigits: 0,
+      });
+
+      if (curr === "USDT") {
+        const usdOutput = usdFormatter.format(value);
+        const tomanOutput = `${tomanFormatter
+          .format(value * 30000)
+          .slice(6)} تومان`;
+        return showCurr === "USD" ? usdOutput : tomanOutput;
+      } else {
+        const usdOutput = usdFormatter.format(value / 30000);
+        const tomanOutput = `${tomanFormatter.format(value).slice(6)} تومان`;
+        return showCurr === "USD" ? usdOutput : tomanOutput;
+      }
+    },
   },
   computed: {
     calculatedCryptos: function () {
@@ -119,16 +166,6 @@ export default {
     },
   },
   filters: {
-    currency: function (value, curr) {
-      let locales = curr === "USDT" ? "en-US" : "fa-IR";
-      let options = {
-        style: "currency",
-        currency: curr === "USDT" ? "USD" : "IRR",
-        minimumFractionDigits: 0,
-      };
-      const formatter = new Intl.NumberFormat(locales, options);
-      return formatter.format(value);
-    },
     percent: function (value) {
       value = Number(value);
       if (isNaN(value)) throw "Please pass a number!";

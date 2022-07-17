@@ -1,16 +1,16 @@
 <template>
   <div class="h-screen">
-    <Register />
+    <RegisterForm />
   </div>
 </template>
 
 <script>
-import Register from "@/components/auth/Register";
+import RegisterForm from "@/components/auth/RegisterForm";
 
 export default {
   name: "register",
   components: {
-    Register,
+    RegisterForm,
   },
   layout: "auth",
 };

@@ -3,14 +3,14 @@
     class="m-10 -mt-12 sm:mx-20 h-full flex items-center justify-center py-0 px-4 sm:px-6 lg:px-8 text-black"
   >
     <div class="max-w-md w-full space-y-8">
-      <div>
+      <div class="flex flex-col gap-6">
         <h1 class="text-2xl">
           به
           <b> تبدیل </b>
           خوش آمدید
         </h1>
-        <h2 class="mt-6 text-2xl">ثبت نام</h2>
-        <p class="mt-6 text-sm text-gray-600 text-justify block">
+        <h2 class="text-2xl">ثبت نام</h2>
+        <div class="text-sm text-gray-600 text-justify">
           <svg
             class="h-5 w-5 text-primary"
             xmlns="http://www.w3.org/2000/svg"
@@ -22,12 +22,18 @@
           </svg>
           در صورت ثبت نام با شماره‌ موبایل به نام خود، فرایند احرازهویت شما
           تسریع می‌گردد.
-        </p>
+        </div>
       </div>
-      <form class="space-y-6" action="#" method="POST">
+      <form
+        class="space-y-6"
+        @submit.prevent="checkExistenceOfUser()"
+        action="#"
+        method="POST"
+      >
         <div>
           <label for="phone" class="sr-only">شماره همراه</label>
           <input
+            v-model="enteredPhoneNumber"
             id="phone"
             name="email"
             type="tel"
@@ -58,13 +64,26 @@
 
 <script>
 import { mdiInformationOutline } from "@mdi/js";
+import User from "@/assets/js/User.js";
 
 export default {
   name: "Register",
   data() {
     return {
       mdiInformationOutline,
+      enteredPhoneNumber: "",
     };
+  },
+  methods: {
+    checkExistenceOfUser() {
+      if (User.allUsers[this.enteredPhoneNumber] !== undefined) {
+        this.$router.push("/auth/login-req");
+      } else {
+        User.tmpPhoneNumber = this.enteredPhoneNumber;
+        console.log(`User.tmpPhoneNumber is ${User.tmpPhoneNumber}`);
+        this.$router.push("/auth/register");
+      }
+    },
   },
 };
 </script>

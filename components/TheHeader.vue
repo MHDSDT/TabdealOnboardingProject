@@ -33,30 +33,42 @@
       </div>
     </div>
     <div class="navbar-end">
-      <NuxtLink
-        to="/auth/login-req"
-        class="btn btn-primary btn-sm btn-ghost ml-2"
-        >ورود</NuxtLink
-      >
-      <NuxtLink to="/auth/register-req" class="btn btn-primary btn-sm ml-2"
-        >ثبت‌نام</NuxtLink
-      >
+      <div v-if="!userClass.isLoggedIn" class="flex">
+        <NuxtLink
+          to="/auth/login-req"
+          class="btn btn-primary btn-sm btn-ghost ml-2"
+          >ورود
+        </NuxtLink>
+        <NuxtLink to="/auth/register-req" class="btn btn-primary btn-sm ml-2"
+          >ثبت‌نام
+        </NuxtLink>
+      </div>
+
+      <div v-else class="navbar-end flex items-center justify-center">
+        <button class="btn btn-primary btn-sm btn-ghost ml-2" dir="ltr">
+          <svg
+            class="w-5 w-5 fill-current"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path :d="mdiMenuDown" />
+          </svg>
+          {{ userClass.loggedInUser.phoneNumber | hidePhoneNumber }}
+        </button>
+
+        <button @click="logOut" class="btn btn-error btn-sm ml-2 text-white">
+          خروج
+        </button>
+      </div>
 
       <div class="dropdown">
         <label tabindex="0" class="btn btn-ghost lg:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
+            class="h-6 w-6 fill-current"
             viewBox="0 0 24 24"
-            stroke="currentColor"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
+            <path :d="mdiMenu" />
           </svg>
         </label>
       </div>
@@ -65,14 +77,29 @@
 </template>
 
 <script>
-import { mdiMenuDown } from "@mdi/js";
+import { mdiMenuDown, mdiMenu } from "@mdi/js";
+import User from "@/assets/js/User.js";
 
 export default {
   name: "TheHeader",
   data() {
     return {
       mdiMenuDown,
+      mdiMenu,
+      userClass: User,
     };
+  },
+  methods: {
+    logOut() {
+      this.userClass.isLoggedIn = false;
+      this.userClass.loggedInUser = null;
+    },
+  },
+  filters: {
+    hidePhoneNumber(value) {
+      if (value.length < 11) return "";
+      return value.slice(0, 4) + "****" + value.slice(8);
+    },
   },
 };
 </script>

@@ -13,28 +13,68 @@
         <p class="text-center text-[#cacccf] text-sm md:text-lg">
           خرید و فروش امن و آسان به‌روزترین ارزهای دیجیتال جهان
         </p>
-        <div
+
+        <div v-if="userClass.isLoggedIn">
+          <button class="btn btn-primary btn-lg flex gap-2">
+            پنل کاربری
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              role="img"
+              aria-hidden="true"
+              class="w-5 w-5 fill-current stroke-2"
+            >
+              <path :d="mdiArrowLeft"></path>
+            </svg>
+          </button>
+        </div>
+        <form
+          @submit.prevent="checkExistenceOfUser()"
+          action="#"
+          method="POST"
+          v-else
           class="relative flex sm:flex-row flex-col items-center justify-center w-11/12 sm:w-auto"
         >
           <input
-            class="input input-lg w-full sm:w-[400px] mb-4 sm:mb-0 sm:ml-4"
+            class="text-black input input-lg w-full sm:w-[400px] mb-4 sm:mb-0 sm:ml-4"
             placeholder="شماره همراه خود را وارد کنید."
+            v-model="enteredPhoneNumber"
             required
           />
-          <button class="btn btn-lg btn-primary w-full sm:w-auto">
+          <button type="submit" class="btn btn-lg btn-primary w-full sm:w-auto">
             همین حالا ثبت نام کنید
           </button>
-        </div>
+        </form>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { mdiArrowLeft } from "@mdi/js";
 import Title from "@/components/general/Title";
+import User from "@/assets/js/User.js";
 
 export default {
   name: "Banner",
+  data() {
+    return {
+      mdiArrowLeft,
+      enteredPhoneNumber: "",
+      userClass: User,
+    };
+  },
+  methods: {
+    checkExistenceOfUser() {
+      if (User.allUsers[this.enteredPhoneNumber] !== undefined) {
+        this.$router.push("/auth/login-req");
+      } else {
+        User.tmpPhoneNumber = this.enteredPhoneNumber;
+        console.log(`User.tmpPhoneNumber is ${User.tmpPhoneNumber}`);
+        this.$router.push("/auth/register");
+      }
+    },
+  },
   components: {
     Title,
   },

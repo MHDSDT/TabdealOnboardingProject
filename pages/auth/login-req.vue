@@ -1,16 +1,16 @@
 <template>
   <div class="h-screen">
-    <Login />
+    <LoginForm />
   </div>
 </template>
 
 <script>
-import Login from "@/components/auth/Login";
+import LoginForm from "@/components/auth/LoginForm";
 
 export default {
   name: "login-req",
   components: {
-    Login,
+    LoginForm,
   },
   layout: "auth",
 };

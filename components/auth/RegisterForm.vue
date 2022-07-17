@@ -6,7 +6,12 @@
       <div>
         <h2 class="mt-6 text-2xl">ثبت نام</h2>
       </div>
-      <form class="space-y-6" action="#" method="POST" @submit="">
+      <form
+        class="space-y-6"
+        action="#"
+        method="POST"
+        @submit.prevent="createUser()"
+      >
         <div class="flex flex-col gap-2">
           <div class="flex items-center">
             <label for="password" class="sr-only">رمز عبور</label>
@@ -83,17 +88,19 @@
           </div>
         </div>
 
-        <div>
-          <button
-            type="submit"
-            :class="disabledButtonClasses"
-            ref="createUserButton"
-          >
+        <div ref="createUserButton">
+          <button type="submit" :class="disabledButtonClasses">
             ساخت حساب کاربری
           </button>
         </div>
       </form>
     </div>
+    <!--    <input type="checkbox" id="modal" class="modal-toggle" />-->
+    <!--    <label for="modal" class="modal cursor-pointer">-->
+    <!--      <label class="modal-box relative" for="">-->
+    <!--        <p class="py-4">ثبت نام با موفقیت انجام شد.</p>-->
+    <!--      </label>-->
+    <!--    </label>-->
   </div>
 </template>
 
@@ -104,6 +111,7 @@ import {
   mdiEye,
   mdiEyeOff,
 } from "@mdi/js";
+import User from "@/assets/js/User.js";
 
 export default {
   name: "Register",
@@ -142,11 +150,14 @@ export default {
       ],
       disabledButtonClasses:
         "btn btn-disabled bg-gray-200 text-gray-400 border-none w-full",
-      primaryButtonClasses: "btn btn-primary w-full",
+      primaryButtonClasses: "btn btn-primary modal-button w-full",
     };
   },
+  middleware({ redirect }) {
+    if (User.tmpPhoneNumber === null) redirect({ path: "/auth/login-req" });
+  },
   watch: {
-    inputPassword: function () {
+    inputPassword() {
       const hasUpperCase = /[A-Z]/;
       const hasNumber = /\d/;
       const hasLowerCase = /[a-z]/;
@@ -158,27 +169,27 @@ export default {
 
       this.setCreateUserButtonClasses();
     },
-    inputPasswordConfirmation: function () {
+    inputPasswordConfirmation() {
       this.doesPasswordsMatch =
         this.inputPassword === this.inputPasswordConfirmation;
 
       this.setCreateUserButtonClasses();
     },
-    isAtLeastEightChars: function () {
+    isAtLeastEightChars() {
       this.passwordProperties[0].booleanProperty = this.isAtLeastEightChars;
     },
-    doesHaveUpperCase: function () {
+    doesHaveUpperCase() {
       this.passwordProperties[1].booleanProperty = this.doesHaveUpperCase;
     },
-    doesHaveNumber: function () {
+    doesHaveNumber() {
       this.passwordProperties[2].booleanProperty = this.doesHaveNumber;
     },
-    doesHaveLowerCase: function () {
+    doesHaveLowerCase() {
       this.passwordProperties[3].booleanProperty = this.doesHaveLowerCase;
     },
   },
   methods: {
-    togglePasswordVisibility: function (ref) {
+    togglePasswordVisibility(ref) {
       const el = this.$refs[ref];
 
       el.type = el.type === "password" ? "text" : "password";
@@ -189,8 +200,8 @@ export default {
         this.isPasswordConfirmationHidden = !this.isPasswordConfirmationHidden;
       }
     },
-    setCreateUserButtonClasses: function () {
-      const button = this.$refs.createUserButton;
+    setCreateUserButtonClasses() {
+      const button = this.$refs.createUserButton.childNodes[0];
       if (
         this.isAtLeastEightChars &&
         this.doesHaveUpperCase &&
@@ -201,6 +212,16 @@ export default {
         button.classList.value = this.primaryButtonClasses;
       } else button.classList.value = this.disabledButtonClasses;
     },
+    createUser() {
+      let newUser = new User(User.tmpPhoneNumber, this.inputPassword);
+      User.isLoggedIn = true;
+      User.loggedInUser = newUser;
+      this.$router.push("/");
+    },
+  },
+  created() {
+    console.log(User.tmpPhoneNumber);
+    console.log(User.allUsers);
   },
 };
 </script>
