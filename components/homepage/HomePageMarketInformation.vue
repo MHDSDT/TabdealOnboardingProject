@@ -1,9 +1,9 @@
 <template>
   <div class="bg-white flex justify-center p-3 sm:pb-20 sm:px-5 pt-0">
     <div
-      class="card w-full bg-white sm:shadow-xl sm:w-[900px] sm:-mt-8 md:-mt-16"
+      class="card w-full bg-white sm:shadow-xl sm:w-[1100px] sm:-mt-8 md:-mt-16"
     >
-      <div class="card-body text-black">
+      <div class="card-body text-black text-center sm:text-start">
         <h1 class="text-4xl font-medium mb-2">
           خرید و فروش بیش از ۹۰ ارز دیجیتال
         </h1>
@@ -16,7 +16,7 @@
 
         <div class="card-actions justify-center">
           <NuxtLink
-            class="flex flex-row p-2 hover:rounded hover:bg-[#f7f7f7] text-center text-sm text-[#999a9d] w-auto hover:cursor-pointer"
+            class="mt-4 flex flex-row p-2 hover:rounded hover:bg-[#f7f7f7] text-center text-sm text-[#999a9d] w-auto hover:cursor-pointer"
             to="/markets-overview"
           >
             مشاهده تمام بازارها

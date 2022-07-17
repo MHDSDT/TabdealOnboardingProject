@@ -23,7 +23,7 @@
     <div class="overflow-x-auto relative">
       <table class="w-full text-sm text-start">
         <thead class="text-xs text-gray-700">
-          <tr class="border-b">
+          <tr>
             <th
               v-for="header in headers"
               scope="col"
@@ -35,18 +35,33 @@
         </thead>
         <tbody>
           <tr
-            :class="index === calculatedCryptos.length - 1 ? '' : 'border-b'"
-            v-for="(crypto, index) in calculatedCryptos"
+            class="border-t"
+            v-for="crypto in calculatedCryptos"
             :key="crypto.symbol_name"
           >
             <td class="py-2 px-4 text-gray-400">
-              <div class="font-medium text-base flex justify-end" dir="ltr">
-                <span class="text-black"> {{ `${crypto.symbol}` }}&nbsp; </span>
-                <span class="text-base">
-                  {{ ` / ${crypto.second_currency_symbol}` }}
-                </span>
+              <div class="flex">
+                <img
+                  class="w-12 h-12 ml-3"
+                  :alt="crypto.symbol + 'icon'"
+                  :src="
+                    'https://tabdeal.org/coin-icons/' +
+                    crypto.symbol.split('_')[0] +
+                    '-icon.svg'
+                  "
+                />
+                <div class="flex flex-col">
+                  <div class="font-medium text-base flex justify-end" dir="ltr">
+                    <span class="text-black">
+                      {{ `${crypto.symbol}` }}&nbsp;
+                    </span>
+                    <span class="text-base">
+                      {{ `/ ${crypto.second_currency_symbol}` }}
+                    </span>
+                  </div>
+                  {{ crypto.farsi_symbol }}
+                </div>
               </div>
-              {{ crypto.farsi_symbol }}
             </td>
             <td class="py-2 px-4">
               <div class="flex flex-col items-start">
