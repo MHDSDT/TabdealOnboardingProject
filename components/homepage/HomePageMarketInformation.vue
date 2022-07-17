@@ -1,6 +1,8 @@
 <template>
-  <div class="bg-white flex justify-center pb-20 px-5 pt-0">
-    <div class="card w-96 bg-white shadow-xl w-[900px] md:-mt-16 -mt-8">
+  <div class="bg-white flex justify-center p-3 sm:pb-20 sm:px-5 pt-0">
+    <div
+      class="card w-full bg-white sm:shadow-xl sm:w-[900px] sm:-mt-8 md:-mt-16"
+    >
       <div class="card-body text-black">
         <h1 class="text-4xl font-medium mb-2">
           خرید و فروش بیش از ۹۰ ارز دیجیتال
