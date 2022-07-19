@@ -1,6 +1,6 @@
 <template>
   <div class="navbar bg-black px-5">
-    <div class="navbar-start">
+    <div class="navbar-start w-full">
       <NuxtLink to="/" class="flex items-center ml-4">
         <img
           src="https://tabdeal.org/tabdeal-logo-dark.svg"
@@ -107,7 +107,6 @@ export default {
   computed: {
     isLoggedIn() {
       if (process.client) {
-        console.log("isLoggedIn is invoked");
         return localStorage.isLoggedIn;
       } else {
         return false;
@@ -115,7 +114,6 @@ export default {
     },
     phoneNumber() {
       if (process.client) {
-        console.log("phoneNumber is invoked");
         return localStorage.tmpPhoneNumber;
       } else {
         return "";

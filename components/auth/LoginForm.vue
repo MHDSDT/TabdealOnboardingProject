@@ -69,8 +69,14 @@ export default {
   methods: {
     checkPhoneNumberAndPassword() {
       const user = User.allUsers[this.inputPhoneNumber];
-      if (User.allUsers[this.inputPhoneNumber] === undefined) return; // TODO show error message
-      if (user.password === this.inputPassword) return; // TODO show error message
+      if (User.allUsers[this.inputPhoneNumber] === undefined) {
+        alert("شماره همراه یا رمز عبر اشتباه است.");
+        return;
+      }
+      if (user.password === this.inputPassword) {
+        alert("شماره همراه یا رمز عبر اشتباه است.");
+        return;
+      }
       localStorage.isLoggedIn = true;
       this.$router.push("/");
     },
