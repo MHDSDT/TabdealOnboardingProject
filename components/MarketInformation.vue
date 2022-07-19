@@ -145,7 +145,7 @@ export default {
     },
   },
   methods: {
-    calculateColorOfChanges: function (value) {
+    calculateColorOfChanges(value) {
       if (value > 0) return "text-green-500";
       if (value === 0) return "text-gray-700";
       return "text-red-600";
@@ -177,7 +177,7 @@ export default {
     },
   },
   computed: {
-    calculatedCryptos: function () {
+    calculatedCryptos() {
       if (!this.isLimited) return this.cryptos;
       let numberOfCryptosToBeShown = Math.max(this.numberOfRows, 0);
       return Object.keys(this.cryptos)
@@ -189,7 +189,7 @@ export default {
     },
   },
   filters: {
-    percent: function (value) {
+    percent(value) {
       value = Number(value);
       if (isNaN(value)) throw "Please pass a number!";
       return value.toFixed(2) + "%";

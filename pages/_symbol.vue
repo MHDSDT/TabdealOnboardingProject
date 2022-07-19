@@ -196,7 +196,7 @@ export default {
     },
   },
   filters: {
-    percent: function (value) {
+    percent(value) {
       value = Number(value);
       if (isNaN(value)) throw "Please pass a number!";
       return value.toFixed(2) + "%";

@@ -9,59 +9,57 @@ export default {
   name: "Title",
   data() {
     return {
-      classes: ''
-    }
+      classes: "",
+    };
   },
   props: {
     textAlign: {
       type: String,
-      default: 'center'
+      default: "center",
     },
     fontSize: {
       type: String,
-      default: 'base'
+      default: "base",
     },
     fontWeight: {
       type: String,
-      default: 'bold'
+      default: "bold",
     },
     isDark: {
       type: Boolean,
-      required: true
+      required: true,
     },
     isImportant: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
-    addTextColor: function () {
-      if (this.isImportant) this.classes += 'text-yellow-500 ';
-      else this.classes += this.isDark ? 'text-white ' : 'text-black ';
+    addTextColor() {
+      if (this.isImportant) this.classes += "text-yellow-500 ";
+      else this.classes += this.isDark ? "text-white " : "text-black ";
     },
-    addFontWeight: function() {
+    addFontWeight() {
       this.classes += `font-${this.fontWeight} `;
     },
-    addFontSize: function() {
+    addFontSize() {
       this.classes += `text-${this.fontSize} `;
     },
-    addTextAlign: function () {
+    addTextAlign() {
       this.classes += `text-${this.textAlign} `;
-    }
+    },
   },
   computed: {
-    setClasses: function () {
-      this.classes = '';
+    setClasses() {
+      this.classes = "";
       this.addFontSize();
       this.addFontWeight();
       this.addTextColor();
       this.addTextAlign();
       return this.classes;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

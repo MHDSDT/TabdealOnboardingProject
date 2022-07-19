@@ -21,7 +21,7 @@ export default {
     },
   },
   computed: {
-    calculatedClass: function () {
+    calculatedClass() {
       const lightClass = "text-gray-400 bg-white";
       const darkClass = "text-gray-400 bg-black";
       return this.isDark ? darkClass : lightClass;

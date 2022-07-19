@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import RegisterRequestForm from "@/components/auth/RegisterRequestForm";
+import RegisterRequestForm from "~/components/auth/RegisterRequestForm";
 
 export default {
   name: "register-req",
