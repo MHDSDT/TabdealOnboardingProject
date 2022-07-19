@@ -64,7 +64,7 @@ export default {
   computed: {
     isLoggedIn() {
       if (process.client) {
-        return localStorage.isLoggedIn;
+        return this.$store.state.isLoggedIn;
       } else {
         return false;
       }
@@ -77,9 +77,8 @@ export default {
       if (User.allUsers[this.enteredPhoneNumber] !== undefined) {
         this.$router.push("/auth/login-req");
       } else {
-        localStorage.tmpPhoneNumber = this.enteredPhoneNumber;
-        console.log(`tmpPhoneNumber is ${localStorage.tmpPhoneNumber}`);
-        localStorage.push("/auth/register");
+        this.$store.commit("setTmpPhoneNumber", this.enteredPhoneNumber);
+        this.$router.push("/auth/register");
       }
     },
   },

@@ -26,6 +26,7 @@
             required
             class="input input-bordered focus:input-primary w-full bg-gray-100 text-base text-gray-900"
             placeholder="شماره همراه"
+            v-model="inputPhoneNumber"
           />
           <label for="password" class="sr-only">رمز عبور</label>
           <input
@@ -35,6 +36,7 @@
             required
             class="input input-bordered focus:input-primary w-full bg-gray-100 text-base text-gray-900"
             placeholder="رمز عبور"
+            v-model="inputPassword"
           />
         </div>
 
@@ -68,16 +70,17 @@ export default {
   },
   methods: {
     checkPhoneNumberAndPassword() {
-      const user = User.allUsers[this.inputPhoneNumber];
-      if (User.allUsers[this.inputPhoneNumber] === undefined) {
-        alert("شماره همراه یا رمز عبر اشتباه است.");
+      const user = User.getUserByPhoneNumber(this.inputPhoneNumber);
+      if (user === undefined) {
+        alert("کاربر وجود ندارد.");
         return;
       }
-      if (user.password === this.inputPassword) {
-        alert("شماره همراه یا رمز عبر اشتباه است.");
+      if (user.password !== this.inputPassword) {
+        alert("رمز عبور اشتباه است.");
         return;
       }
-      localStorage.isLoggedIn = true;
+      this.$store.commit("setTmpPhoneNumber", this.inputPhoneNumber);
+      this.$store.commit("setIsLoggedIn", true);
       this.$router.push("/");
     },
   },

@@ -59,7 +59,7 @@
           {{ phoneNumber | hidePhoneNumber }}
         </button>
 
-        <button @click="logOut()" class="btn btn-error btn-sm ml-2 text-white">
+        <button @click="logOut" class="btn btn-error btn-sm ml-2 text-white">
           خروج
         </button>
       </div>
@@ -107,14 +107,14 @@ export default {
   computed: {
     isLoggedIn() {
       if (process.client) {
-        return localStorage.isLoggedIn;
+        return this.$store.state.isLoggedIn;
       } else {
         return false;
       }
     },
     phoneNumber() {
       if (process.client) {
-        return localStorage.tmpPhoneNumber;
+        return this.$store.state.tmpPhoneNumber;
       } else {
         return "";
       }
@@ -122,12 +122,8 @@ export default {
   },
   methods: {
     logOut() {
-      localStorage.isLoggedIn = false;
-      localStorage.tmpPhoneNumber = null;
-      console.log(`localStorage.isLoggedIn: ${localStorage.isLoggedIn}`);
-      console.log(
-        `localStorage.tmpPhoneNumber: ${localStorage.tmpPhoneNumber}`
-      );
+      this.$store.commit("setIsLoggedIn", false);
+      this.$store.commit("setTmpPhoneNumber", "");
     },
   },
   filters: {

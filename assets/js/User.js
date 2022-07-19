@@ -1,26 +1,18 @@
 export default class User {
-  static allUsers = {};
+  static allUsers = [];
 
   constructor(phoneNumber, password) {
-    this._phoneNumber = phoneNumber;
-    this._password = password;
-    User.allUsers[phoneNumber] = this;
-    console.log(`User ${phoneNumber} with password ${password} created!`);
+    this.phoneNumber = phoneNumber;
+    this.password = password;
+    User.allUsers.push(this);
   }
 
-  get phoneNumber() {
-    return this._phoneNumber;
-  }
-
-  get password() {
-    return this._password;
-  }
-
-  set phoneNumber(value) {
-    this._phoneNumber = value;
-  }
-
-  set password(value) {
-    this._password = value;
+  static getUserByPhoneNumber(phoneNumber) {
+    for (let i = 0; i < User.allUsers.length; i++) {
+      if (User.allUsers[i].phoneNumber === phoneNumber) {
+        return User.allUsers[i];
+      }
+    }
+    return undefined;
   }
 }

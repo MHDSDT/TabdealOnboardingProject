@@ -155,7 +155,7 @@ export default {
   },
   middleware({ redirect }) {
     if (process.client) {
-      if (localStorage.tmpPhoneNumber.length <= 0)
+      if (this.$store.state.tmpPhoneNumber.length <= 0)
         redirect({ path: "/auth/register-req" });
     }
   },
@@ -216,8 +216,8 @@ export default {
       } else button.classList.value = this.disabledButtonClasses;
     },
     createUser() {
-      new User(localStorage.tmpPhoneNumber, this.inputPassword);
-      localStorage.isLoggedIn = true;
+      new User(this.$store.state.tmpPhoneNumber, this.inputPassword);
+      this.$store.commit("setIsLoggedIn", true);
       this.$router.push("/");
     },
   },
