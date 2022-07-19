@@ -28,16 +28,28 @@
             placeholder="شماره همراه"
             v-model="inputPhoneNumber"
           />
-          <label for="password" class="sr-only">رمز عبور</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            class="input input-bordered focus:input-primary w-full bg-gray-100 text-base text-gray-900"
-            placeholder="رمز عبور"
-            v-model="inputPassword"
-          />
+          <div class="flex items-center">
+            <label for="password" class="sr-only">رمز عبور</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              ref="password"
+              required
+              class="input input-bordered focus:input-primary w-full bg-gray-100 text-base text-gray-900"
+              placeholder="رمز عبور"
+              v-model="inputPassword"
+            />
+            <svg
+              class="h-8 w-8 fill-current -mr-11 hover:cursor-pointer"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              @click="togglePasswordVisibility('password')"
+            >
+              <path :d="isPasswordHidden ? mdiEyeOff : mdiEye" />
+            </svg>
+          </div>
         </div>
 
         <div>
@@ -59,6 +71,7 @@
 
 <script>
 import User from "@/assets/js/User";
+import { mdiEye, mdiEyeOff } from "@mdi/js";
 
 export default {
   name: "Login",
@@ -66,9 +79,17 @@ export default {
     return {
       inputPhoneNumber: "",
       inputPassword: "",
+      isPasswordHidden: true,
+      mdiEye,
+      mdiEyeOff,
     };
   },
   methods: {
+    togglePasswordVisibility(ref) {
+      const el = this.$refs[ref];
+      el.type = el.type === "password" ? "text" : "password";
+      this.isPasswordHidden = !this.isPasswordHidden;
+    },
     checkPhoneNumberAndPassword() {
       const user = User.getUserByPhoneNumber(this.inputPhoneNumber);
       if (user === undefined) {
