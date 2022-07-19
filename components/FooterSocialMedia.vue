@@ -42,10 +42,6 @@
         </svg>
       </a>
     </div>
-    <NuxtLink class="btn btn-sm btn-ghost" to="/auth/login-req">ورود</NuxtLink>
-    <NuxtLink class="btn btn-sm btn-ghost" to="/auth/register-req"
-      >ثبت نام</NuxtLink
-    >
   </div>
 </template>
 
