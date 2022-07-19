@@ -158,6 +158,9 @@ export default {
       obj: crypto[params.symbol.slice(4).toUpperCase()],
     };
   },
+  middleware({ redirect, store }) {
+    if (!store.state.isLoggedIn) return redirect({ path: "/auth/login-req" });
+  },
   methods: {
     calculateColorOfChangesText(value) {
       if (value > 0) return "text-green-500";

@@ -153,12 +153,6 @@ export default {
       primaryButtonClasses: "btn btn-primary modal-button w-full",
     };
   },
-  middleware({ redirect }) {
-    if (process.client) {
-      if (this.$store.state.tmpPhoneNumber.length <= 0)
-        redirect({ path: "/auth/register-req" });
-    }
-  },
   watch: {
     inputPassword() {
       const hasUpperCase = /[A-Z]/;
