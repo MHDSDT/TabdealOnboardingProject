@@ -3,14 +3,26 @@
     class="m-10 -mt-12 sm:mx-20 h-full flex items-center justify-center py-0 px-4 sm:px-6 lg:px-8 text-black"
   >
     <div class="max-w-md w-full space-y-8">
-      <div>
+      <div class="flex flex-col gap-2">
         <h2 class="mt-6 text-2xl">ثبت نام</h2>
+        <div class="flex text-gray-500">
+          {{ phoneNumber }}&nbsp;
+          <svg
+            class="h-5 w-5 fill-current hover:cursor-pointer"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            @click="editPhoneNumber"
+          >
+            <path :d="mdiPencil" />
+          </svg>
+        </div>
       </div>
       <form
         class="space-y-6"
         action="#"
         method="POST"
-        @submit.prevent="createUser()"
+        @submit.prevent="createUser"
       >
         <div class="flex flex-col gap-2">
           <div class="flex items-center">
@@ -40,12 +52,13 @@
             class="flex flex-col text-sm text-gray-500 gap-2 pr-4 my-4 font-light"
           >
             <p
-              v-for="prop in passwordProperties"
+              v-for="(prop, index) in passwordProperties"
               :key="prop.title"
               class="flex gap-2"
             >
               <svg
-                class="h-5 w-5 fill-current"
+                :class="getPasswordPropertiesClasses(index)"
+                class="h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -110,6 +123,7 @@ import {
   mdiCheckboxMarkedOutline,
   mdiEye,
   mdiEyeOff,
+  mdiPencil,
 } from "@mdi/js";
 import User from "@/assets/js/User.js";
 
@@ -121,6 +135,7 @@ export default {
       mdiCropSquare,
       mdiEye,
       mdiEyeOff,
+      mdiPencil,
       isAtLeastEightChars: false,
       doesHaveUpperCase: false,
       doesHaveNumber: false,
@@ -164,13 +179,13 @@ export default {
       this.doesHaveNumber = hasNumber.test(this.inputPassword);
       this.doesHaveLowerCase = hasLowerCase.test(this.inputPassword);
 
-      this.setCreateUserButtonClasses();
+      this.getCreateUserButtonClasses();
     },
     inputPasswordConfirmation() {
       this.doesPasswordsMatch =
         this.inputPassword === this.inputPasswordConfirmation;
 
-      this.setCreateUserButtonClasses();
+      this.getCreateUserButtonClasses();
     },
     isAtLeastEightChars() {
       this.passwordProperties[0].booleanProperty = this.isAtLeastEightChars;
@@ -186,6 +201,9 @@ export default {
     },
   },
   methods: {
+    editPhoneNumber() {
+      this.$router.push("/auth/register-req");
+    },
     togglePasswordVisibility(ref) {
       const el = this.$refs[ref];
 
@@ -197,7 +215,7 @@ export default {
         this.isPasswordConfirmationHidden = !this.isPasswordConfirmationHidden;
       }
     },
-    setCreateUserButtonClasses() {
+    getCreateUserButtonClasses() {
       const button = this.$refs.createUserButton.childNodes[0];
       if (
         this.isAtLeastEightChars &&
@@ -213,6 +231,25 @@ export default {
       new User(this.$store.state.tmpPhoneNumber, this.inputPassword);
       this.$store.commit("setIsLoggedIn", true);
       this.$router.push("/");
+    },
+    getPasswordPropertiesClasses(index) {
+      const fillCurrent = "fill-current";
+      const green = "fill-green-400";
+      switch (index) {
+        case 0:
+          return this.isAtLeastEightChars ? green : fillCurrent;
+        case 1:
+          return this.doesHaveUpperCase ? green : fillCurrent;
+        case 2:
+          return this.doesHaveNumber ? green : fillCurrent;
+        case 3:
+          return this.doesHaveLowerCase ? green : fillCurrent;
+      }
+    },
+  },
+  computed: {
+    phoneNumber() {
+      return this.$store.state.tmpPhoneNumber;
     },
   },
 };

@@ -106,18 +106,10 @@ export default {
   },
   computed: {
     isLoggedIn() {
-      if (process.client) {
-        return this.$store.state.isLoggedIn;
-      } else {
-        return false;
-      }
+      return this.$store.state.isLoggedIn;
     },
     phoneNumber() {
-      if (process.client) {
-        return this.$store.state.tmpPhoneNumber;
-      } else {
-        return "";
-      }
+      return this.$store.state.tmpPhoneNumber;
     },
   },
   methods: {

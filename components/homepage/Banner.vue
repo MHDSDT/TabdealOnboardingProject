@@ -63,11 +63,7 @@ export default {
   },
   computed: {
     isLoggedIn() {
-      if (process.client) {
-        return this.$store.state.isLoggedIn;
-      } else {
-        return false;
-      }
+      return this.$store.state.isLoggedIn;
     },
   },
   methods: {
