@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer class="footer p-10 bg-[#212224] text-base-content">
+    <footer class="footer p-10 bg-gray-900 text-base-content">
       <div>
         <span class="footer-title">درباره ما</span>
         <a v-for="item in about" class="link link-hover">{{ item }}</a>
