@@ -20,6 +20,9 @@
 </template>
 
 <script>
+import FooterSocialMedia from "@/components/default/FooterSocialMedia";
+import CopyRight from "@/components/default/CopyRight";
+
 export default {
   name: "TheFooter",
   data() {
@@ -48,6 +51,10 @@ export default {
         "خرید دوج کوین",
       ],
     };
+  },
+  components: {
+    FooterSocialMedia,
+    CopyRight,
   },
 };
 </script>

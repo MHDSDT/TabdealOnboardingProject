@@ -92,7 +92,7 @@
 
 <script>
 import { mdiMenuDown, mdiMenu, mdiAccountCircleOutline } from "@mdi/js";
-import User from "@/assets/js/User.js";
+import User from "assets/js/User.js";
 
 export default {
   name: "TheHeader",

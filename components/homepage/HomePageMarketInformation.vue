@@ -41,8 +41,13 @@
 </template>
 
 <script>
+import MarketInformation from "@/components/markets-overview/MarketInformation";
+
 export default {
   name: "HomePageMarketInformation",
+  components: {
+    MarketInformation,
+  },
 };
 </script>
 

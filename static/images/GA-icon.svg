@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Group_4153" width="48" height="48" viewBox="0 0 48 48">
+    <defs>
+        <radialGradient id="radial-gradient" cx="28.985" cy=".926" r="0" gradientTransform="translate(0)" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#fff" stop-opacity=".102"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <style>
+            .cls-1{fill:#616161}.cls-2{fill:#9e9e9e}.cls-4{fill:rgba(33,33,33,.1)}.cls-7{fill:#bdbdbd}
+        </style>
+    </defs>
+    <circle id="Ellipse_1147" cx="24" cy="24" r="24" class="cls-1"/>
+    <path id="Path_9042" d="M-844.849-369.152a15.271 15.271 0 0 1-15.272-15.272 15.271 15.271 0 0 1 15.272-15.276 15.23 15.23 0 0 1 10.8 4.473l6.171-6.171a23.926 23.926 0 0 0-16.97-7.03 24 24 0 0 0-24 24 24 24 0 0 0 24 24 23.938 23.938 0 0 0 16.972-7.028l-6.171-6.171a15.245 15.245 0 0 1-10.802 4.475z" class="cls-2" transform="translate(868.849 408.424)"/>
+    <path id="Path_9043" fill="#424242" d="M-759.063-313.911h-7.637a7.638 7.638 0 0 0-7.637-7.637 7.635 7.635 0 0 0-7.635 7.637 7.611 7.611 0 0 0 2.133 5.291l-.006.006 9.455 9.455a15.277 15.277 0 0 0 11.325-14.754z" transform="translate(798.335 337.911)"/>
+    <path id="Path_9044" d="M-700.417-281h-8.728a15.279 15.279 0 0 1-11.323 14.754l6.74 6.74A24 24 0 0 0-700.417-281z" class="cls-1" transform="translate(748.415 305)"/>
+    <path id="Path_9045" d="M-844.849-257.866a24 24 0 0 1-24-23.863v.137a24 24 0 0 0 24 24 24 24 0 0 0 24-24v-.137a24 24 0 0 1-24 23.863z" class="cls-4" transform="translate(868.849 305.592)"/>
+    <path id="Path_9046" fill="rgba(255,255,255,0.05)" d="M-720.457-266.246l.213.213a15.274 15.274 0 0 0 11.11-14.694V-281a15.28 15.28 0 0 1-11.323 14.754z" transform="translate(748.406 305)"/>
+    <g id="Group_4150" transform="translate(21.818 21.818)">
+        <path id="Path_9047" d="M-731.193-292.587h-19.637a2.181 2.181 0 0 0-2.181 2.181 2.181 2.181 0 0 0 2.181 2.182h19.635a2.181 2.181 0 0 0 2.181-2.182 2.178 2.178 0 0 0-2.179-2.181z" class="cls-2" transform="translate(753.011 292.587)"/>
+        <path id="Path_9048" fill="#bdbdbd" d="M-731.193-292.587h-19.637a2.181 2.181 0 0 0-2.181 2.181 2.181 2.181 0 0 0 2.181 2.182h19.635a2.181 2.181 0 0 0 2.181-2.182 2.178 2.178 0 0 0-2.179-2.181z" transform="translate(753.011 292.587)" style="isolation:isolate" opacity="0.5"/>
+    </g>
+    <g id="Group_4152" transform="translate(0 0)">
+        <g id="Group_4151" transform="translate(2.727 2.727)">
+            <circle id="Ellipse_1148" cx="1.636" cy="1.636" r="1.636" class="cls-7" transform="translate(0 19.637)"/>
+            <circle id="Ellipse_1149" cx="1.636" cy="1.636" r="1.636" class="cls-7" transform="translate(19.637)"/>
+            <circle id="Ellipse_1150" cx="1.636" cy="1.636" r="1.636" class="cls-7" transform="translate(19.637 39.272)"/>
+            <circle id="Ellipse_1151" cx="1.636" cy="1.636" r="1.636" class="cls-7" transform="translate(5.728 5.751)"/>
+            <circle id="Ellipse_1152" cx="1.636" cy="1.636" r="1.636" class="cls-7" transform="matrix(0.045, -0.999, 0.999, 0.045, 5.656, 36.742)"/>
+        </g>
+        <circle id="Ellipse_1153" cx="1.636" cy="1.636" r="1.636" fill="#757575" transform="translate(36.273 36.273)"/>
+        <path id="Path_9049" fill="rgba(255,255,255,0.2)" d="M-750.825-292.309h19.635a2.178 2.178 0 0 1 2.174 2.046c0-.046.008-.091.008-.137a2.182 2.182 0 0 0-2.182-2.181h-19.635a2.181 2.181 0 0 0-2.182 2.181 1.113 1.113 0 0 0 .008.137 2.177 2.177 0 0 1 2.174-2.046z" transform="translate(774.826 314.401)"/>
+        <path id="Path_9050" fill="rgba(33,33,33,0.2)" d="M-729.017-280.281a2.183 2.183 0 0 1-2.174 2.046h-19.635a2.178 2.178 0 0 1-2.174-2.046 1.1 1.1 0 0 0-.008.135 2.182 2.182 0 0 0 2.182 2.181h19.635a2.182 2.182 0 0 0 2.182-2.181 1.068 1.068 0 0 0-.008-.135z" transform="translate(774.826 304.416)"/>
+        <path id="Path_9051" d="M-807.238-369.138a15.23 15.23 0 0 1 10.8 4.473l6.3-6.309-.135-.137-6.169 6.171a15.23 15.23 0 0 0-10.8-4.473 15.271 15.271 0 0 0-15.272 15.272v.137a15.27 15.27 0 0 1 15.27-15.135z" class="cls-4" transform="translate(831.238 378.139)"/>
+        <circle id="Ellipse_1154" cx="24" cy="24" r="24" fill="url(#radial-gradient)"/>
+    </g>
+</svg>

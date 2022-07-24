@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Title from "@/components/general/Title";
+import MarketInformation from "@/components/markets-overview/MarketInformation";
 import { mdiHelpCircleOutline, mdiArrowLeft } from "@mdi/js";
 
 export default {
@@ -50,7 +50,7 @@ export default {
     };
   },
   components: {
-    Title,
+    MarketInformation,
   },
 };
 </script>
