@@ -133,7 +133,7 @@
 import { mdiChevronLeft } from "@mdi/js";
 
 export default {
-  name: "_symbol",
+  name: "symbolPage",
   data() {
     return {
       mdiChevronLeft,

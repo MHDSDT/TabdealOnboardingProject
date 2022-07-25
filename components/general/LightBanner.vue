@@ -1,9 +1,9 @@
 <template>
   <section
-    class="flex py-12 px-8 sm:px-12 lg:px-28 justify-center text-gray-600 bg-gray-200"
+    class="flex py-12 px-8 sm:px-12 lg:px-28 justify-center text-gray-600 bg-zinc-100"
   >
     <!--    <div class="flex">-->
-    <div class="flex flex-col lg:w-4/5 gap-4 z-10">
+    <div class="flex flex-col w-full lg:w-[1200px] gap-4 z-10">
       <img
         src="/images/commission/dots.png"
         alt="dots"

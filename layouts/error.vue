@@ -31,7 +31,7 @@ export default {
       title,
     };
   },
-  layout: "404",
+  layout: "error-layout",
 };
 </script>
 

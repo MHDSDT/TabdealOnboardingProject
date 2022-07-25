@@ -11,7 +11,7 @@ import TheHeader from "@/components/default/TheHeader";
 import CopyRight from "@/components/default/CopyRight";
 
 export default {
-  name: "404",
+  name: "error-layout",
   components: {
     TheHeader,
     CopyRight,

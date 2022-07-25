@@ -6,7 +6,7 @@
       background-image-path="/images/commission/commission-banner-background.svg"
     />
     <section
-      class="flex flex-col py-12 px-8 sm:px-12 lg:px-28 items-center text-gray-600 gap-12 bg-gray-100"
+      class="flex flex-col py-12 px-8 sm:px-12 lg:px-28 items-center text-gray-600 gap-12 bg-white"
     >
       <CommissionGeneralInfo />
       <CommissionIRTMarketsInfo />
