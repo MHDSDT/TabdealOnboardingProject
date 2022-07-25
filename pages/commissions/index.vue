@@ -6,10 +6,11 @@
       background-image-path="/images/commission/commission-banner-background.svg"
     />
     <section
-      class="flex flex-col py-12 px-8 sm:px-12 lg:px-28 items-center text-gray-600 gap-8 bg-gray-100"
+      class="flex flex-col py-12 px-8 sm:px-12 lg:px-28 items-center text-gray-600 gap-12 bg-gray-100"
     >
       <CommissionGeneralInfo />
       <CommissionIRTMarketsInfo />
+      <SwapCommissionInfo />
     </section>
   </div>
 </template>
@@ -18,6 +19,7 @@
 import LightBanner from "@/components/general/LightBanner";
 import CommissionGeneralInfo from "@/components/commissions/index/CommissionGeneralInfo";
 import CommissionIRTMarketsInfo from "@/components/commissions/index/CommissionIRTMarketsInfo";
+import SwapCommissionInfo from "@/components/commissions/index/SwapCommissionInfo";
 
 export default {
   name: "index",
@@ -25,6 +27,7 @@ export default {
     LightBanner,
     CommissionGeneralInfo,
     CommissionIRTMarketsInfo,
+    SwapCommissionInfo,
   },
 };
 </script>

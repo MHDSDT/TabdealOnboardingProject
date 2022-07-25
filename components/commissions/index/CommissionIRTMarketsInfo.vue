@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col lg:w-4/5 gap-4 text-gray-600">
+  <div class="flex flex-col lg:w-4/5 gap-8 text-gray-600">
     <h1 class="font-bold text-2xl text-black mr-2">
       سطوح کارمزدی بازارهای تومانی
     </h1>
@@ -22,7 +22,10 @@
           </div>
         </div>
         <div>
-          <div v-for="tableRow in tableRows" class="border-b p-4 flex">
+          <div
+            v-for="tableRow in tableRows"
+            class="border-b p-4 flex text-xs sm:text-base"
+          >
             <div :class="colsPortion[0]">{{ tableRow[0] }}</div>
             <div :class="colsPortion[1]">{{ tableRow[1] }}</div>
             <div :class="colsPortion[2]">{{ tableRow[2] }}</div>
@@ -47,7 +50,7 @@ export default {
         "کارمزد",
         "سطح کارمزدی",
       ],
-      colsPortion: ["w-2/3", "w-1/6", ""],
+      colsPortion: ["w-2/3", "w-1/6", "w-1/6"],
       tableRows: [
         ["کمتر از 10 میلیون", "0.40%", "فیروزه"],
         ["بین 10 تا 40 میلیون", "0.35%", "عقیق"],
