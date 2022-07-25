@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col justify-center lg:flex-row p-16">
+  <div
+    class="flex flex-col justify-center lg:flex-row p-16 bg-zinc-100 gap-8 lg:gap-0 min-h-screen"
+  >
     <div class="flex flex-col justify-center items-center lg:items-start gap-4">
       <h1 class="text-9xl font-bold text-gray-400 mb-6">۴۰۴</h1>
       <h2 class="text-2xl font-bold text-black mb-2">
