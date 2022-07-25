@@ -158,8 +158,17 @@ export default {
       obj: crypto[params.symbol.slice(4).toUpperCase()],
     };
   },
-  middleware({ redirect, store }) {
-    if (!store.state.isLoggedIn) return redirect({ path: "/auth/login-req" });
+  middleware({ params, error }) {
+    // if (!store.state.isLoggedIn) return redirect({ path: "/auth/login-req" });
+    const symbols = require("~/coins.json");
+    if (
+      !symbols.includes(params.symbol.toLowerCase()) ||
+      params.symbol.toLowerCase() === "lunc"
+    ) {
+      // next({ path: '/404' })
+      // redirect({ path: '/404' })
+      error({ statusCode: 404, message: "coin not found" });
+    }
   },
   methods: {
     calculateColorOfChangesText(value) {
