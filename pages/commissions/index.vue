@@ -6,51 +6,53 @@
       background-image-path="/images/commission/commission-banner-background.svg"
     />
     <section
-      class="flex flex-col py-12 px-8 sm:px-12 lg:px-28 items-center text-gray-600 gap-12 bg-white"
+      class="flex justify-center py-12 px-8 sm:px-12 lg:px-28 text-gray-600 bg-white"
     >
-      <CommissionGeneralInfo />
-      <CommissionIRTMarketsInfo />
-      <SwapCommissionInfo />
+      <div class="w-full xl:w-[1200px] flex flex-col justify-center gap-12">
+        <CommissionGeneralInfo />
+        <CommissionIRTMarketsInfo />
+        <SwapCommissionInfo />
 
-      <div class="lg:w-4/5 space-y-4 text-gray-600">
-        <h1 class="font-bold text-2xl text-black">
-          کارمزد برداشت و واریز ارز دیجیتال (کوین)
-        </h1>
-        <p class="text-justify">
-          کارمزد برداشت یا واریز ارزهای دیجیتال، به نوع ارز موردنظر و شبکهٔ
-          بلاک‌چین بستگی دارد. این کارمزد مربوط به تراکنش‌های درون‌شبکه‌ای است و
-          تبدیل در تعیین آن‌ها نقشی ندارد. این کارمزدها را به تفکیک هر کوین
-          می‌توانید در لینک زیر مشاهده نمایید.
-        </p>
-        <NuxtLink
-          to="/commissions/cryptofee"
-          class="btn btn-ghost btn-sm border border-gray-500 rounded font-medium text-xs text-gray-400"
-        >
-          جزئیات کارمزد برداشت ارز دیجیتال
-          <!--          <TIcon right>{{ mdiChevronLeft }}</TIcon>-->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            class="fill-gray-400 mr-1 stroke-0"
+        <div class="space-y-4 text-gray-600">
+          <h1 class="font-bold text-2xl text-black">
+            کارمزد برداشت و واریز ارز دیجیتال (کوین)
+          </h1>
+          <p class="text-justify">
+            کارمزد برداشت یا واریز ارزهای دیجیتال، به نوع ارز موردنظر و شبکهٔ
+            بلاک‌چین بستگی دارد. این کارمزد مربوط به تراکنش‌های درون‌شبکه‌ای است
+            و تبدیل در تعیین آن‌ها نقشی ندارد. این کارمزدها را به تفکیک هر کوین
+            می‌توانید در لینک زیر مشاهده نمایید.
+          </p>
+          <NuxtLink
+            to="/commissions/cryptofee"
+            class="btn btn-ghost btn-sm border border-gray-500 rounded font-medium text-xs text-gray-400"
           >
-            <path :d="mdiChevronLeft"></path>
-          </svg>
-        </NuxtLink>
+            جزئیات کارمزد برداشت ارز دیجیتال
+            <!--          <TIcon right>{{ mdiChevronLeft }}</TIcon>-->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              class="fill-gray-400 mr-1 stroke-0"
+            >
+              <path :d="mdiChevronLeft"></path>
+            </svg>
+          </NuxtLink>
+        </div>
+
+        <div class="space-y-4 text-gray-600">
+          <h1 class="font-bold text-2xl text-black">کارمزد واریز تومانی</h1>
+          <p class="text-justify">
+            تبدیل بابت واریز تومانی، از کاربران کارمزدی دریافت نمی‌کند. صرفاً
+            امکان دارد کارمزد واریز توسط پرداخت‌یار دریافت شود.
+          </p>
+        </div>
+
+        <TomanWithdrawCommissionInfo />
+
+        <!-- TODO: TradeNowSection -->
       </div>
-
-      <div class="lg:w-4/5 space-y-4 text-gray-600">
-        <h1 class="font-bold text-2xl text-black">کارمزد واریز تومانی</h1>
-        <p class="text-justify">
-          تبدیل بابت واریز تومانی، از کاربران کارمزدی دریافت نمی‌کند. صرفاً
-          امکان دارد کارمزد واریز توسط پرداخت‌یار دریافت شود.
-        </p>
-      </div>
-
-      <TomanWithdrawCommissionInfo />
-
-      <!-- TODO: TradeNowSection -->
     </section>
   </div>
 </template>

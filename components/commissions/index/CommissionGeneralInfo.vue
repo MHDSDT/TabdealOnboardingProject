@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col lg:w-4/5 gap-4">
+  <div class="flex flex-col gap-4">
     <h1 class="font-bold text-2xl text-black">کارمزد معاملات</h1>
     <div v-for="item in items" class="flex items-center gap-2">
       <img :src="item.imgPath" class="w-12 sm:w-16 md:w-20 lg:w-auto" />
-      <p class="text-justify">{{ item.description }}</p>
+      <p class="text-justify first:w-4/5">{{ item.description }}</p>
     </div>
   </div>
 </template>

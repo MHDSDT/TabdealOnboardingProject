@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col lg:w-4/5 gap-8 text-gray-600">
+  <div class="flex flex-col gap-8 text-gray-600">
     <h1 class="font-bold text-2xl text-black mr-2">
       سطوح کارمزدی بازارهای تومانی
     </h1>
