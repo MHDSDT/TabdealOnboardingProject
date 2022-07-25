@@ -3,7 +3,7 @@
     class="footer footer-center p-4 text-base-content"
     :class="calculatedClass"
   >
-    <div class="flex flex-row">
+    <div class="flex flex-row" :class="calculatedClass">
       <p>© تمام حقوق مادی و معنوی این سایت متعلق به تبدیل است.</p>
       <div class="divider divider-horizontal -mx-1 bg-opacity-100"></div>
       <a href="https://tabdeal.org/termsconditions/"> قوانین و مقررات </a>

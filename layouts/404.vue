@@ -2,7 +2,7 @@
   <div dir="rtl">
     <TheHeader />
     <Nuxt />
-    <CopyRight :is-dark="false" />
+    <CopyRight />
   </div>
 </template>
 
@@ -11,7 +11,7 @@ import TheHeader from "@/components/default/TheHeader";
 import CopyRight from "@/components/default/CopyRight";
 
 export default {
-  name: "auth",
+  name: "404",
   components: {
     TheHeader,
     CopyRight,
