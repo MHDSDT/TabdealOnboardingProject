@@ -6,7 +6,9 @@
     <div class="flex flex-row" :class="calculatedClass">
       <p>© تمام حقوق مادی و معنوی این سایت متعلق به تبدیل است.</p>
       <div class="divider divider-horizontal -mx-1 bg-opacity-100"></div>
-      <a href="https://tabdeal.org/termsconditions/"> قوانین و مقررات </a>
+      <NuxtLink v-if="condition" to="/termsconditions">
+        قوانین و مقررات
+      </NuxtLink>
     </div>
   </footer>
 </template>
@@ -16,6 +18,10 @@ export default {
   name: "CopyRight",
   props: {
     isDark: {
+      type: Boolean,
+      default: true,
+    },
+    condition: {
       type: Boolean,
       default: true,
     },
