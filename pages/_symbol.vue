@@ -161,9 +161,10 @@ export default {
   middleware({ params, error }) {
     // if (!store.state.isLoggedIn) return redirect({ path: "/auth/login-req" });
     const symbols = require("~/coins.json");
+    const param_symbol = params.symbol.slice(4);
     if (
-      !symbols.includes(params.symbol.toLowerCase()) ||
-      params.symbol.toLowerCase() === "lunc"
+      !symbols.includes(param_symbol.toLowerCase()) ||
+      param_symbol.toLowerCase() === "lunc"
     ) {
       // next({ path: '/404' })
       // redirect({ path: '/404' })
