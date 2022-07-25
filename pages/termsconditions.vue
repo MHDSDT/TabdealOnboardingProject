@@ -106,8 +106,23 @@
           </ul>
         </div>
 
-        <!-- user accepts: -->
-        <UserAccepts />
+        <!-- user agreement -->
+        <div class="space-y-4">
+          <h1>کاربر می‌پذیرد که:</h1>
+          <ol>
+            <li v-for="item in userAgreement">
+              {{ item.title }}
+              <ul v-if="item.list">
+                <li v-for="it in item.list">
+                  {{ it.title }}
+                  <ul v-if="it.list">
+                    <li v-for="i in it.list">{{ i }}</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
 
         <!-- resolve problem -->
         <div class="space-y-4">
@@ -155,8 +170,9 @@
 
 <script>
 import LightBanner from "@/components/general/LightBanner";
-import UserAccepts from "@/components/termsconditions/UserAccepts";
 import { mdiInformationOutline } from "@mdi/js";
+
+const userAgreement = require("~/UserAgreement.json");
 
 export default {
   name: "termsconditions",
@@ -228,11 +244,11 @@ export default {
         "در صورتی که کاربر، اطلاعات ورود خود به سامانه را از دست دهد، برای بازگرداندن اطلاعات به او، اطلاعاتی که بنا به صلاح‌دید تبدیل است، گرفته خواهدشد و در صورت تأیید اطلاعات، به فرد دسترسی داده خواهد‌شد و در صورت احرازنشدن کامل هویت، دسترسی بازگردانده نخواهدشد.",
         "در صورت عدم ورود طولانی‌مدت کاربر جهت استفاده از خدمات معین، ممکن است سایت تبدیل جهت امکان استفاده از خدمات، از کاربر، اطلاعات دیگری مطالبه کند.",
       ],
+      userAgreement,
     };
   },
   components: {
     LightBanner,
-    UserAccepts,
   },
 };
 </script>
@@ -289,16 +305,8 @@ ul > li {
   margin-bottom: 1rem;
 }
 
-ol > li > ul > li::marker {
-  color: #0bb3f0 !important;
-  content: "-" !important;
-  margin-bottom: 1rem;
-}
-
-ol > li > ul > li > ul > li::marker {
-  color: #0bb3f0 !important;
-  content: "-" !important;
-  margin-bottom: 1rem;
+ol > li > ul > li > ul {
+  margin-top: 1rem;
 }
 
 ol > li::marker {
@@ -308,5 +316,15 @@ ol > li::marker {
 
 ul > li::marker {
   color: #0bb3f0;
+}
+
+ol > li > ul > li::marker {
+  color: #0bb3f0 !important;
+  content: "-" !important;
+}
+
+ol > li > ul > li > ul > li::marker {
+  color: #0bb3f0 !important;
+  content: "-" !important;
 }
 </style>
