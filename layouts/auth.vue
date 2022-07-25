@@ -1,5 +1,5 @@
 <template>
-  <div dir="rtl">
+  <div dir="rtl" class="min-h-screen">
     <TheHeader />
     <Nuxt />
     <CopyRight :is-dark="false" />
